@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  devise_for :users
+  get 'static/home'
+  get 'static/about'
+  get 'static/contact_us'
+  get 'static/faq'
+	root to: 'static#home'
 end
