@@ -13,6 +13,12 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise', '~> 4.6', '>= 4.6.2'
+gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+gem 'jquery-rails'
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+
+
 group :development, :test do
   gem 'capybara', '>= 2.15'
   gem 'byebug'
