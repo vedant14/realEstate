@@ -1,0 +1,78 @@
+@import "bootstrap";
+
+footer {
+  padding-top: 2rem;
+  margin-left: 5rem;
+}
+
+.body-main {
+  padding-top: 3.5rem;
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+}
+
+.hero-card {
+  margin-top: 10rem;
+  margin-bottom: 15rem;
+  margin-left: 5rem;
+  padding: 5rem;
+  width: 50rem;
+}
+
+#outerWrap {
+position: relative;
+z-index: 0;
+background-color: #00CCFF;
+width: 100%;
+}
+
+#layer1 {
+position: absolute;
+z-index: 1;
+height: 350px;
+width: 350px;
+top: 40px;
+left: 40px; 
+}
+
+.carousel {
+  margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  color: black;
+  bottom: 3rem;
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 32rem;
+}
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
+}
+
+.section-break {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.featured-prop {
+  padding: 1rem;
+}
+
+.alternate-1 {
+  background-color: #e3e3e3;
+}
+
+.service {
+  align-content: center;
+  padding-left: 10rem;
+  padding-bottom: 5rem;
+  padding-top: 5rem;
+}

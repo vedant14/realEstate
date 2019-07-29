@@ -1,0 +1,22 @@
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  
+    <%= link_to "Homzhub", root_path, class: 'navbar-brand' %>
+    
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+        <li>
+        <%= link_to "Upload a property", new_property_path, class: "btn btn-warning" %>
+        </li>
+      </ul>
+     
+        <%= render "shared/usercontrol" %>
+    </div>
+  </nav>
+
