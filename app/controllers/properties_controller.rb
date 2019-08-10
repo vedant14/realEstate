@@ -2,7 +2,7 @@ class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
 
   def index
-    @properties = Property.all
+    @property = Property.search(params[:search_society_name])
   end
 
   def show
@@ -55,6 +55,6 @@ class PropertiesController < ApplicationController
     end
 
     def property_params
-      params.require(:property).permit(:address, :user_id)
+      params.require(:property).permit(:search_society_name, :city_search, :address, :user_id, :society_name, :bedroom, :city,:pincode, :unit_no, :service, :property_type, :super_built_up_area, :carpet_area, :bathroom, :balcony, :furnishing, :total_floors, :on_floor, :availability, :parking, :price, :description, :status, images: [])
     end
 end

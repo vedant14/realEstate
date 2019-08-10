@@ -1,23 +1,148 @@
-<%= form_with(model: property, local: true) do |form| %>
-  <% if property.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+<div class="container">
+  <%= form_with(model: property, local: true) do |form| %>
+    <% if property.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
 
-      <ul>
-      <% property.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% property.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="form-group">
+        <%= form.label :images %>
+        <%= form.file_field :images, multiple: true, direct_upload: true ,class: "form-control"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <%= form.label :unit_no %>
+        <%= form.number_field :unit_no ,class: "form-control", autofocus: true %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :society_name %>
+        <%= form.text_field :society_name ,class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <%= form.label :address %>
+        <%= form.text_area :address, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :city %>
+        <%= form.text_field :city, class: "form-control" %>
+      </div> 
+
+      <div class="form-group">
+        <%= form.label :pincode %>
+        <%= form.number_field :pincode ,class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="form-group">
+        <%= form.label :bedroom %>
+        <%= form.number_field :bedroom ,class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :bathroom %>
+        <%= form.number_field :bathroom ,class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :balcony %>
+        <%= form.number_field :balcony ,class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <%= form.radio_button :furnishing, 'unfurnished' %>
+        <%= form.label :furnishing, "Unfurinshed" %>
+
+        <%= form.radio_button :furnishing, 'semi_furnished' %>
+        <%= form.label :furnishing, "Semi - Furnished" %>
+
+        <%= form.radio_button :furnishing, 'fully_furnished' %>
+        <%= form.label :furnishing, "Fully Furnsihed" %>
+      </div>
+      <div class="form-group">
+        <%= form.radio_button :property_type, 'residential_apartment' %>
+        <%= form.label :property_type, "Residential Apartment" %>
+
+        <%= form.radio_button :property_type, 'villa' %>
+        <%= form.label :property_type, "Villa or Bunglow" %>
+
+        <%= form.radio_button :property_type, 'others' %>
+        <%= form.label :property_type, "Something Else" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :super_built_up_area %>
+        <%= form.text_field :super_built_up_area ,class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :carpet_area %>
+        <%= form.text_field :carpet_area ,class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :parking %>
+        <%= form.number_field :parking ,class: "form-control" %>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <%= form.label :total_floors %>
+        <%= form.number_field :total_floors ,class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :on_floor %>
+        <%= form.number_field :on_floor ,class: "form-control" %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="form-group">
+        <%= form.radio_button :availability, 'ready_to_move' %>
+        <%= form.label :availability, "Ready To Move" %>
+
+        <%= form.radio_button :availability, 'under_construction' %>
+        <%= form.label :availability, "Under Construction" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.radio_button :service, 'rent' %>
+        <%= form.label :service, "For Rent" %>
+
+        <%= form.radio_button :service, 'sell' %>
+        <%= form.label :service, "For Sell" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :price %>
+        <%= form.number_field :price ,class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_area :description ,class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
+</div>     
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

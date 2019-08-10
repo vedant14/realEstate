@@ -1,0 +1,33 @@
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+    	<% 3.times.each do |image| %>
+	      <li data-target="#myCarousel" data-slide-to=" #{image} " class="active"></li>
+	     <% end %> 
+    </ol>
+    <div class="carousel-inner">
+    <% 3.times.each do |image| %>
+      <div class="carousel-item active">
+        <%= image_tag "https://images.unsplash.com/photo-1498373419901-52eba931dc4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",class:"d-block w-100", width: '100%', alt: "Office Office" %> 
+        <div class="container">
+          <div class="carousel-caption text-left">
+            <h1>Example headline. #{image} </h1>
+            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+          </div>
+        </div>
+      </div>
+      <% end %> 
+    </div>
+    
+
+
+
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>

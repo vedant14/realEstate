@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="card">
+	  <div class="card-body">
+	    <h4 class="card-title">Search for your dream home.</h4>
+	    <p class="card-text">
+				<%= form_tag(properties_path, method: :get) do %>
+	    	<div class="row">
+		    		<div class="col-md-5">
+		    		 Enter a city
+		    		</div>
+		    		<div class="col-md-5">
+  					<%= search_field_tag :search_society_name, params[:search_society_name] , placeholder: "Mumbai, Nagpur..", class: "form-control" %>
+  				</div>
+  				<div class="col-md-2">
+  					<%= submit_tag 'Search', class: "btn", name: nil %>
+  				</div>
+				<% end %>
+			</div>
+		</p>
+	  </div>
+	</div>
+</div>

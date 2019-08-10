@@ -1,6 +1,7 @@
 @import "bootstrap";
+@import "properties.scss";
 
-footer {
+.footer {
   padding-top: 2rem;
   margin-left: 5rem;
 }
@@ -30,7 +31,7 @@ width: 100%;
 position: absolute;
 z-index: 1;
 height: 350px;
-width: 350px;
+width: 300px;
 top: 40px;
 left: 40px; 
 }
@@ -68,11 +69,84 @@ left: 40px;
 
 .alternate-1 {
   background-color: #e3e3e3;
+  width: 100%;
 }
 
 .service {
   align-content: center;
-  padding-left: 10rem;
+  padding-left: 5rem;
   padding-bottom: 5rem;
   padding-top: 5rem;
+}
+
+.property-img {
+  margin-right: auto;
+  margin-left: 5rem;
+  margin-top: 1rem;
+  align-content: center;
+  marigin-bottom: 10px; 
+  height: 550px;
+  width: 80%;
+}
+
+.border-details {
+  border-left: 3px solid black;
+  border-right: 3px solid black;  
+}
+
+
+/* direct_uploads.css */
+ 
+.direct-upload {
+  display: inline-block;
+  position: relative;
+  padding: 2px 4px;
+  margin: 0 3px 3px 0;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  font-size: 11px;
+  line-height: 13px;
+}
+ 
+.direct-upload--pending {
+  opacity: 0.6;
+}
+ 
+.direct-upload__progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 0.2;
+  background: #0076ff;
+  transition: width 120ms ease-out, opacity 60ms 60ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+ 
+.direct-upload--complete .direct-upload__progress {
+  opacity: 0.4;
+}
+ 
+.direct-upload--error {
+  border-color: red;
+}
+ 
+input[type=file][data-direct-upload-url][disabled] {
+  display: none;
+}
+
+
+.album-index {
+  padding: 1rem;
+}
+
+.index-image  {
+  align-content: center;
+  padding: 1rem;
+  background-color: #f7f7f7;
+}
+
+#map2 {
+    width: 600px;
+    height: 400px;
 }

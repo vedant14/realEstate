@@ -1,22 +1,2 @@
-<div id= "outerWrap" > 
-	 <%= image_tag "home-bg.png", width: '100%', alt: "Office Office" %> 
-</div>
-<div id= "layer1" > 
-	<div class="hero-card">
-		<div class="container">
-			<div class="card">
-			  <div class="card-body">
-			    <h4 class="card-title">Search for your dream home.</h4>
-			    <p class="card-text">
-			    Location ----------------
-				BHK 
-				RENT or BUY 
-				<%= link_to "Start your search", root_path, class: "btn btn-primary" %>	
-				</p>
-			  </div>
-			</div>
-
-		</div>
-	</div>
-
-</div>
+<div id= "outerWrap" > <%= image_tag "home-bg.png", width: '100%', alt: "Office Office" %> </div>
+<div id= "layer1" > <div class="hero-card"> <%= render "shared/searchbar" %> </div> </div>

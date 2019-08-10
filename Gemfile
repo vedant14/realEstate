@@ -13,9 +13,14 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise', '~> 4.6', '>= 4.6.2'
-gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+gem 'aws-sdk-s3'
+gem 'image_processing', '~> 1.2'
+gem 'pundit', '~> 2.0', '>= 2.0.1'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 
 group :development, :test do
@@ -24,6 +29,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'  
   gem 'database_cleaner'
   gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
+  gem 'elasticsearch-extensions'
 end
 
 group :development do

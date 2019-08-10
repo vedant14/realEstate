@@ -1,14 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+	<div class="row">
+		<% if @property.images.attached? %>
+			<% @property.images.each do |image| %>
+				<%= image_tag image.variant(resize: "500x400").processed, class:"property-img", alt: "#{@property.id}" %> 
+			<% end %>
+		<% else %>
+			<%= image_tag "https://images.unsplash.com/photo-1498373419901-52eba931dc4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",class:"property-img", alt: "Default Image" %> 
+		<% end %>
+	</div> <br>
 
-<p>
-  <strong>Address:</strong>
-  <%= @property.address %>
-</p>
+	<div class="row">
+		<h2> <%= @property.society_name %>, <%= @property.city %> </h2>
+	</div>
+	<div class="row">
+		<h3> Rs. <%= @property.price %> to <%= @property.service%> the <%= @property.bedroom %> BHK <%= @property.property_type %> </h3>
+	</div>
+	<div class="row">
+			<p> <%= @property.address %> - <%= @property.pincode %></p>
+	</div> <br>
+	<div class="row">
+		<div class="col-md-3">
+			<p> Carpert area <%= @property.carpet_area %> 
+			Super Built Up Area <%= @property.super_built_up_area %>  <br>
+		 On	floor <%= @property.on_floor %> 
+			of <%= @property.total_floors %> </p>
+		</div>
+		<div class="col-md-3 border-details">
+			<p> Bathrooms are <%= @property.bathroom %> 
+			and balconies are<%= @property.balcony %>
+			with <%= @property.parking %> parking.  </p>			
+		</div>
+		<div class="col-md-3">
+			<p> <%= @property.furnishing %>  <br>
+			 </p>
+		</div>
+	</div> <br>
 
-<p>
-  <strong>Users:</strong>
-  <%= @property.user_id %>
-</p>
+	<div class="row">
+		<%= @property.description %>
+	</div>
 
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>
+</div>
+

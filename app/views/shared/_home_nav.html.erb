@@ -12,7 +12,11 @@
           <a class="nav-link disabled" href="#">Disabled</a>
         </li>
         <li>
-        <%= link_to "Upload a property", new_property_path, class: "btn btn-warning" %>
+          <% if current_user %>
+            <%= link_to "Upload a property", new_property_path, class: "btn btn-warning" %>
+          <% else %>
+          <%=  link_to "Upload a property", new_user_registration_path, class: "btn btn-warning", notice: "You need to sign up first"%>
+          <% end %>
         </li>
       </ul>
      
