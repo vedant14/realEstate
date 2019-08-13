@@ -2,7 +2,7 @@ class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
 
   def index
-    @property = Property.search(params[:search_society_name])
+      @property = Property.search(params[:q])
   end
 
   def show

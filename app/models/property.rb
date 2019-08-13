@@ -9,13 +9,13 @@ class Property < ApplicationRecord
 
   has_many_attached :images
 
-
-
-  def self.search(search)
-  	if search
-  		Property.where('society_name LIKE ?', "%#{search}%")
-    else
-    	Property.all
-    end
+  searchkick
+  def search_data
+    {
+      society_name: society_name,
+      city: city,
+      pincode: pincode,
+      description: description
+    }
   end
 end
