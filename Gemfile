@@ -19,8 +19,7 @@ gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'aws-sdk-s3'
 gem 'image_processing', '~> 1.2'
 gem 'pundit', '~> 2.0', '>= 2.0.1'
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
+
 
 
 group :development, :test do
@@ -29,7 +28,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'  
   gem 'database_cleaner'
   gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
-  gem 'elasticsearch-extensions'
 end
 
 group :development do
