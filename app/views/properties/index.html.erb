@@ -3,7 +3,11 @@
   <div class="album-index">  
     <div class="container-fluid">
       <div class="row">
-        <%= render @property %>
+      	<% if @properties.count == 0 %>
+      		<h1> No Properties </h1>
+      	<% else %>  
+      	    <%= render @properties %>
+      	<% end %>
       </div>
     </div>
   </div>
