@@ -28,7 +28,7 @@ avail = ['ready_to_move', 'under_construction', 'ready_to_move']
 	pincode: "400123",
 	society_name: societies.sample,
 	unit_no: "2A - #{(property+1)}",
-	service: "rent",
+	service: "Rent",
 	property_type: types.sample,
 	total_floors: "11",
 	on_floor: "#{(property+1)}",
@@ -38,7 +38,7 @@ avail = ['ready_to_move', 'under_construction', 'ready_to_move']
 	description: "Great view on apartment"
     )
 end
-puts '5 one bhk rent property posted'
+puts '5 one bhk Rent property posted'
 
 5.times do |property|
   Property.create!(
@@ -53,7 +53,7 @@ puts '5 one bhk rent property posted'
 	pincode: "400123",
 	society_name: societies.sample,
 	unit_no: "2A - #{(property+1)}",
-	service: "sell",
+	service: "Sell",
 	property_type: types.sample,
 	total_floors: "11",
 	on_floor: "#{(property+1)}",
@@ -63,7 +63,7 @@ puts '5 one bhk rent property posted'
 	description: "Great view on apartment"
     )
 end
-puts '5 one bhk sell property posted'
+puts '5 one bhk Sell property posted'
 
 
 5.times do |property|
@@ -79,7 +79,7 @@ puts '5 one bhk sell property posted'
 	pincode: "400123",
 	society_name: societies.sample,
 	unit_no: "2A - #{(property+1)}",
-	service: "rent",
+	service: "Rent",
 	property_type: types.sample,
 	total_floors: "11",
 	on_floor: "#{(property+1)}",
@@ -89,7 +89,7 @@ puts '5 one bhk sell property posted'
 	description: "Great view on apartment"
     )
 end
-puts '5 two bhk rent property posted'
+puts '5 two bhk Rent property posted'
 
 
 
@@ -106,7 +106,7 @@ puts '5 two bhk rent property posted'
 	pincode: "400123",
 	society_name: societies.sample,
 	unit_no: "2A - #{(property+1)}",
-	service: "sell",
+	service: "Sell",
 	property_type: types.sample,
 	total_floors: "11",
 	on_floor: "#{(property+1)}",
@@ -116,7 +116,7 @@ puts '5 two bhk rent property posted'
 	description: "Great view on apartment"
     )
 end
-puts '5 two bhk sell property posted'
+puts '5 two bhk Sell property posted'
 
 
 5.times do |property|
@@ -132,7 +132,7 @@ puts '5 two bhk sell property posted'
 	pincode: "400123",
 	society_name: societies.sample,
 	unit_no: "2A - #{(property+1)}",
-	service: "rent",
+	service: "Rent",
 	property_type: types.sample,
 	total_floors: "11",
 	on_floor: "#{(property+1)}",
@@ -142,6 +142,6 @@ puts '5 two bhk sell property posted'
 	description: "Great view on apartment"
     )
 end
-puts '5 three bhk rent property posted'
+puts '5 three bhk Rent property posted'
 
 

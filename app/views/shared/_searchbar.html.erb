@@ -1,30 +1,42 @@
-<div class="container">
+<div class="container-fluid">
 	<div class="card">
 		<div class="container">
 			<div class="card-body">
 				<h4 class="card-title">Search for your dream home.</h4>
-				<p class="card-text">
+				<div class="card-text">
 					<%= form_tag(properties_path, method: :get) do %>
 					<div class="row">
-						<div class="form-group">
-							<%= label_tag :city, "Type in a city" %>
-								<%= search_field_tag :city, params[:city] , placeholder: "Mumbai, Nagpur..", class: "form-control" %>
+						<div class=" col-md-9">
+							<div class="form-group row">
+								<div class="col-md-12">
+									<%= search_field_tag :city, params[:city] , placeholder: "Type a society or city..", class: "form-control" %>
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-md-2 col-form-label">
+									<%= label_tag :bedroom, "No. of rooms?" %>
+								</div>
+								<div>
+									<%= select_tag :bedroom, options_for_select(@beds, params[:bedroom]),include_blank: true, class: "form-control" %>
+								</div>
+								<div class="col-md-3 col-form-label ">
+									<%= label_tag :service, "Want to buy or rent?" %> 
+								</div>
+								<div>
+									<%= select_tag :service, options_for_select([
+																			["Rent","Rent"],
+																			["Buy","Sell"]
+																			], 
+																			params[:service]), class: "form-control" %>
+								</div>
+							</div>
 						</div>
-						<div class="form-group">
-								<%= label_tag :society_name, "What society would you like to live in?" %>
-								<%= search_field_tag :society_name, params[:society_name] , placeholder: "Enter the Society name", class: "form-control" %>
-						</div>
-						<div class="form-group">
-								<%= label_tag :service, "Sell or Rent?" %>
-								<%= radio_button_tag(:service, "sell", params[:service] == "sell") %> Buy <br/>
-								<%= radio_button_tag(:service, "rent", params[:service] == "rent") %> Rent <br/>
-						</div>
-						<div class="col-md-2">
-							<%= submit_tag 'Search', class: "btn", name: nil %>
+						<div class="col-md-3">
+								<%= submit_tag 'Search', class: "btn btn-success btn-lg btn-block", name: nil %>
 						</div>
 					</div>
 					<% end %>
-				</p>
+				</div>
 			</div>
 		</div>
 	</div>

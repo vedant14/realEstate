@@ -1,18 +1,42 @@
 class Property < ApplicationRecord
   include Filterable
   belongs_to :user
+  attr_writer :current_step
 
-  enum service: { No_service:0, rent: 1, sell: 2}
+  validates :user_id, presence: true
+  validates :address, presence: true
+  validates :bedroom, presence: true
+  validates :city, presence: true
+  # validate :correct_image_types
+  validates :unit_no, presence: true
+  validates :property_type, presence: true
+  validates :carpet_area, presence: true
+  validates :furnishing, presence: true
+  validates :service, presence: true
+  validates :price, presence: true
+  validates :pincode, presence: true
+
+
   enum status: { Pending: 0, Approved: 1, Rejected: 2}
-  enum availability: { ready_to_move: 0, under_construction: 1}
-  enum property_type: { residential_apartment: 0, villa: 1, others: 2}
-  enum furnishing: { unfurnished: 0, semi_furnished: 1, fully_furnished: 2}
   has_many_attached :images
 
 
-
-  scope :society_name, -> (society_name) { where (["society_name ILIKE ?", "%#{society_name}%"])}
-  scope :city, -> (city) { where (["city ILIKE ?", "%#{city}%"])}
+  scope :city, -> (city) { where (["city || society_name ILIKE ?", "%#{city}%"])}
   scope :service, -> (service) { where service: service}
+  scope :bedroom, -> (bedroom) { where bedroom: bedroom}
 
-end
+
+
+private
+  # def correct_image_types
+
+  #   image.each do |image|
+  #     if image.attached? && !image.content_type.in?(%w(image/jpeg image/png))
+  #       errors.add(:image, 'must be JPEG or PNG.')
+  #     elsif image.attached? == false
+  #       errors.add(:image, 'required')
+  #     end  
+  # end  
+
+end    
+

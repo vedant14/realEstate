@@ -19,6 +19,7 @@ gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'aws-sdk-s3'
 gem 'image_processing', '~> 1.2'
 gem 'pundit', '~> 2.0', '>= 2.0.1'
+gem 'simple_form', '~> 4.1'
 
 group :development, :test do
   gem 'capybara', '>= 2.15'

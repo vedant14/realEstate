@@ -150,3 +150,14 @@ input[type=file][data-direct-upload-url][disabled] {
     width: 600px;
     height: 400px;
 }
+
+$breadcrumb-divider: quote(">");
+
+hr { 
+  border: 0;
+  height: 0;
+  border-top: 2px solid rgba(0, 0, 0, 0.6);
+  border-bottom: 0.5px solid rgba(128,128,128, 0.2);
+  margin-bottom: 5rem;
+  margin-top: 2rem;
+}

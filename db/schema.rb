@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_15_041435) do
+ActiveRecord::Schema.define(version: 2019_08_19_171236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,17 +46,17 @@ ActiveRecord::Schema.define(version: 2019_08_15_041435) do
     t.integer "pincode"
     t.string "society_name"
     t.integer "unit_no"
-    t.integer "service", default: 0
-    t.integer "property_type"
+    t.string "service", default: "0"
+    t.string "property_type"
     t.float "super_built_up_area"
     t.float "carpet_area"
     t.integer "bathroom"
     t.integer "balcony"
-    t.integer "furnishing"
+    t.string "furnishing"
     t.integer "total_floors"
     t.integer "on_floor"
-    t.integer "availability", default: 0
-    t.integer "parking"
+    t.string "availability", default: "0"
+    t.string "parking"
     t.decimal "price"
     t.text "description"
     t.integer "status", default: 0

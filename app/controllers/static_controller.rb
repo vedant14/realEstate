@@ -1,6 +1,8 @@
 class StaticController < ApplicationController
   def home
+  	    @beds = Property.distinct.pluck(:bedroom).reverse
   end
+
 
   def about
   end
