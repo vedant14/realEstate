@@ -50,6 +50,23 @@ class PropertiesController < ApplicationController
     end
   end
 
+
+  def new_offer
+    @offer = Offer.new
+  end
+
+  def create_offer
+    @offer = Offer.new(offer_params)
+    respond_to do |format|
+      if @offer.save
+        format.html { redirect_to @property, notice: 'Your interest in this property has been recorded.' }
+      else
+        format.html { render :new }
+      end
+    end
+  end
+
+
   private
     def set_property
       @property = Property.find(params[:id])
@@ -59,4 +76,7 @@ class PropertiesController < ApplicationController
       params.require(:property).permit(:address, :user_id, :society_name, :bedroom, :city,:pincode, :unit_no, :service, :property_type, :super_built_up_area, :carpet_area, :bathroom, :balcony, :furnishing, :total_floors, :on_floor, :availability, :parking, :price, :description, :status, images: [])
     end
 
+    def offer_params
+      params.require(:offer).permit(:user_id,:phone,:property_id)
+    end
 end

@@ -1,6 +1,7 @@
 class Property < ApplicationRecord
   include Filterable
   belongs_to :user
+  has_many :offers
   attr_writer :current_step
 
   validates :user_id, presence: true

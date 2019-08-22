@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
 
   has_many :properties
+  has_many :offers
+  
   validates_presence_of :full_name, :phone
   PHONE_REGEX = /\A[0-9]*\Z/
 
