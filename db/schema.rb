@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_161216) do
+ActiveRecord::Schema.define(version: 2019_08_23_172326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,13 +38,13 @@ ActiveRecord::Schema.define(version: 2019_08_22_161216) do
 
   create_table "offers", force: :cascade do |t|
     t.bigint "property_id"
-    t.bigint "user_id"
     t.string "phone"
-    t.integer "uniqueid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
+    t.string "full_name"
+    t.integer "uniqueid"
     t.index ["property_id"], name: "index_offers_on_property_id"
-    t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
   create_table "properties", force: :cascade do |t|
@@ -76,16 +76,6 @@ ActiveRecord::Schema.define(version: 2019_08_22_161216) do
     t.index ["user_id"], name: "index_properties_on_user_id"
   end
 
-  create_table "searches", force: :cascade do |t|
-    t.string "search_society"
-    t.string "search_city"
-    t.integer "search_bedroom"
-    t.decimal "max_price"
-    t.decimal "min_price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -103,6 +93,5 @@ ActiveRecord::Schema.define(version: 2019_08_22_161216) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "offers", "properties"
-  add_foreign_key "offers", "users"
   add_foreign_key "properties", "users"
 end

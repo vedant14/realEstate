@@ -1,0 +1,9 @@
+<div class="row">
+	<% if @property.images.attached? %>
+		<% @property.images.each do |image| %>
+			<%= image_tag image.variant(resize: "500x400").processed, class:"property-img", alt: "#{@property.id}" %> 
+		<% end %>
+	<% else %>
+		<%= image_tag "https://images.unsplash.com/photo-1498373419901-52eba931dc4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",class:"property-img", alt: "Default Image" %> 
+	<% end %>
+</div> 

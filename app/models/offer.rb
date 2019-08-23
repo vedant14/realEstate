@@ -1,18 +1,25 @@
 class Offer < ApplicationRecord
   belongs_to :property
-  belongs_to :user
 
-  validates_presence_of :user_id, :property_id
-  validates :phone, length: { is: 10 }
+  validates_presence_of :property_id, :email, :full_name, :phone
+
   PHONE_REGEX = /\A[0-9]*\Z/
+
   validates_format_of :phone, with: PHONE_REGEX
-  
 
-  before_create :create_unique_id
+  validates :phone, length: { is: 10 }
 
-  protected
-	  def create_unique_id
-		self.uniqueid = user_id.to_s + property_id.to_s
-		self.uniqueid.to_i
-	  end
+	after_save :change_defaults
+
+	protected 
+
+
+	def change_defaults
+		$full_name = self.full_name
+		$email = self.email
+		$phone = self.phone
+	end  
 end
+
+
+

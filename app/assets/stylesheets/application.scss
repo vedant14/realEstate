@@ -1,10 +1,21 @@
 @import "bootstrap";
 @import "properties.scss";
 
-.footer {
-  padding-top: 2rem;
-  margin-left: 5rem;
+
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 5.5rem;
+  padding-top: 1rem;
 }
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+
 
 .body-main {
   padding-top: 3.5rem;
@@ -151,7 +162,6 @@ input[type=file][data-direct-upload-url][disabled] {
     height: 400px;
 }
 
-$breadcrumb-divider: quote(">");
 
 hr { 
   border: 0;
@@ -160,4 +170,53 @@ hr {
   border-bottom: 0.5px solid rgba(128,128,128, 0.2);
   margin-bottom: 5rem;
   margin-top: 2rem;
+}
+
+
+.main,
+.sidebar {
+  padding: 15px;
+  margin: 20px;
+  background-color: #fff;
+}
+
+.main {
+  width: 60%;
+  height: 200vh;
+}
+
+.sidebar {
+  width: 30%;
+  height: 80vh;
+}
+.sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 5rem;
+}
+
+.side-head {
+  color: black;
+}
+
+.sidebar-module {
+  padding: 2rem;
+  /*margin: 0 -1rem 1rem;*/
+}
+.sidebar-module-inset {
+  padding: 1rem;
+  background-color: #AEBFA2;
+  border-radius: .25rem;
+}
+
+.sidebar-module-alert {
+  /*margin: 0 -1rem 1rem;*/
+}
+.sidebar-module-inset-alert {
+  background-color: #F21616;
+  border-radius: .25rem;
+  color: black;
+}
+.sidebar-cont{
+  padding: 1rem;
 }

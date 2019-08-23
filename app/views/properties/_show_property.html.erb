@@ -1,0 +1,37 @@
+<div class="container">
+	<br>
+	<div class="row">
+		<h2> <%= @property.society_name %>, <%= @property.city %> </h2>
+	</div>
+	<div class="row">
+		<h3> Rs. <%= @property.price %> to <%= @property.service%> the <%= @property.bedroom %> BHK <%= @property.property_type %> </h3>
+	</div>
+	<div class="row">
+		<p> <%= @property.address %> - <%= @property.pincode %></p>
+	</div> 
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<p> Carpert area <%= @property.carpet_area %> 
+				Super Built Up Area <%= @property.super_built_up_area %>  <br>
+				On	floor <%= @property.on_floor %> 
+				of <%= @property.total_floors %> </p>
+		</div>
+		<div class="col-md-3 border-details">
+			<p> Bathrooms are <%= @property.bathroom %> 
+				and balconies are<%= @property.balcony %>
+				with <%= @property.parking %> parking.  </p>			
+		</div>
+		<div class="col-md-3">
+		<p> 
+			<%= @property.furnishing %>  <br>
+		</p>
+		</div>
+	</div> 
+	<br>
+	<div class="row">
+		<%= @property.description %>
+	</div>
+	<%= link_to 'Edit', edit_property_path(@property) %> |
+	<%= link_to 'Back', properties_path %>
+</div>
