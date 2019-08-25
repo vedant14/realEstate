@@ -8,7 +8,6 @@ class PropertiesController < ApplicationController
 
   def show
     @offer = Offer.new
-    @offer.uniqueid = current_user.id if current_user
     $propid = @property.id
     $full_name = current_user.full_name if current_user && $full_name.blank?
     $email = current_user.email if current_user && $email.blank?

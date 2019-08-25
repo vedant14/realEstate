@@ -7,6 +7,8 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.property_id = $propid
+    @offer.uniqueid = current_user.id if current_user
+
 
 
     respond_to do |format|
