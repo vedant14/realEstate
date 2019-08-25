@@ -1,2 +1,22 @@
-<div id= "outerWrap" > <%= image_tag "home-bg.png", width: '100%', alt: "Office Office" %> </div>
-<div id= "layer1" > <div class="hero-card"> <%= render "shared/searchbar" %> </div> </div>
+<div id= "outerWrap" > 
+	<div class="image-hero">
+	</div>
+</div>
+<div class="d-md-none">
+	<div id= "layer1" > 
+		<div class="container">	
+			<div class="hero-card">
+				<%= render "shared/searchbar" %> 
+			</div>
+		</div>
+	</div>
+</div>
+<div class="d-none d-md-block">
+	<div id= "layer2" > 
+		<div class="container">	
+			<div class="hero-card">
+				<%= render "shared/searchbar" %> 
+			</div>
+		</div>
+	</div>
+</div>

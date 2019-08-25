@@ -1,9 +1,10 @@
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  
-    <%= link_to "Homzhub", root_path, class: 'navbar-brand' %>
-    
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <%=  link_to "Homzhub", root_path, class: "navbar-brand" %>
 
-    <div class="collapse navbar-collapse" id="navbarCollapse">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-brand"> Search | Menu </span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
@@ -18,9 +19,11 @@
           <%=  link_to "Upload a property", new_user_registration_path, class: "btn btn-warning", notice: "You need to sign up first"%>
           <% end %>
         </li>
+        <hr class="d-md-none">
       </ul>
-     
-        <%= render "shared/usercontrol" %>
-    </div>
-  </nav>
-
+      <div class="navig-pad">
+          <%= render "shared/search_home" %>  
+      </div>
+          <%= render "shared/usercontrol" %>
+  </div>
+</nav>

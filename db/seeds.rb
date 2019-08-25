@@ -10,8 +10,8 @@ end
 
 cities = ['Nagpur', 'Mumbai', 'Bengaluru', 'Delhi', 'Pune']
 societies = ['Mahindra Bloomdale', 'Godrej Anandam', 'La Sallete', 'Kalpataru', 'Tata Capital']
-types = ['residential_apartment', 'villa', 'others']
-furnishings = ['unfurnished', 'semi_furnished', 'fully_furnished']
+types = ['Residential Apartment', 'Villa', 'Independent Bunglow']
+furnishings = ['Un-furnished', 'Semi-furnished', 'Fully-furnished']
 avail = ['ready_to_move', 'under_construction', 'ready_to_move']
 
 
