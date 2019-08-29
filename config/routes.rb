@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+      resources :users
+      # resources :offers
+      # resources :properties
+       resources :admin_users
+
+      # root to: "users#index"
+    end
   get 'offers/new'
   resources :properties
   resources :offers

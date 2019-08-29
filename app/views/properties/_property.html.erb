@@ -1,9 +1,9 @@
 <div class="col-md-4 album-index">
   <div class="card mb-4 shadow-sm" id= "property-image" > 
       <% if property.images.attached? %> 
-          <%= link_to image_tag(property.images.first, width: '100%') , property, class: "index-image"  %>
+          <%= link_to image_tag(property.images.first, width: '100%', height:"200px") , property, class: "index-image"  %>
       <% else %>
-        <%= link_to image_tag("img/item/1.jpg", width: '100%'),property, class: "index-image" %> 
+        <%= link_to image_tag("img/item/1.jpg", width: '100%', height:"200px" ),property, class: "index-image" %> 
       <% end %>    
     <div class="card-header">
       <p class="card-text"> <%= property.bedroom %> Bedroom <%= property.property_type %> in <%= property.society_name %>,  <%= property.city %></p>

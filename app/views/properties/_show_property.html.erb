@@ -1,22 +1,51 @@
-<div class="container">
+<div class="container-fluid">
 	<br>
 	<div class="row">
-		<h2> <%= @property.society_name %>, <%= @property.city %> </h2>
+		<h1> <%= @property.society_name %>, <%= @property.city %> </h1> 
 	</div>
 	<div class="row">
-		<h3> Rs. <%= @property.price %> to <%= @property.service%> the <%= @property.bedroom %> BHK <%= @property.property_type %> </h3>
+		<h5>  <i class="fa fa-map-marker"> </i></td> <td> <%= @property.address %>,  <%= @property.pincode %> </h5> 
 	</div>
 	<div class="row">
-		<p> <%= @property.address %> - <%= @property.pincode %></p>
-	</div> 
-	<br>
+		<em> <h2> <%= badge_helper (@property.service) %></h2> </em>
+	</div>
+	<hr>
 	<div class="row">
-		<div class="col-md-3">
-			<p> Carpert area <%= @property.carpet_area %> 
-				Super Built Up Area <%= @property.super_built_up_area %>  <br>
-				On	floor <%= @property.on_floor %> 
-				of <%= @property.total_floors %> </p>
-		</div>
+		<h3>About the property <i class="fa fa-star"> </i> </h3>
+	</div>
+	<div class= "table-card" >
+		<table class="table table-borderless table-sm table-hover">
+			<tbody>
+				<tr>
+		      		<td class="h5"> <i class="fa fa-bed"> </i> </td> <td> <%= @property.bedroom %> Bedroom</td>
+			    </tr>
+			    <tr>
+		      		<td class="h5"> <i class="fa fa-home"> </i> </td> <td> <%= @property.property_type %></td>
+			    </tr>
+			    <tr>
+		      		<td class="h5"> <i class="fa fa-object-ungroup"> </i> </td> <td> Carpet area is <%= @property.carpet_area.to_i %> sq. ft.</td>
+			    </tr>
+			    <% if @property.super_built_up_area.present? %>
+			    <tr>
+		      		<td class="h5"> <i class="fa fa-object-ungroup"> </i> </td> <td> Built-up area is <%= @property.super_built_up_area.to_i %> sq. ft.</td>
+			    </tr>
+			    <% end %>
+			    <% if @property.on_floor.present? %>
+ 			    <tr>
+		      		<td class="h5"> <i class="fa fa-unsorted" > </i> </td> <td> Property is on floor <%= @property.on_floor %> </td>
+			    </tr>
+			    <% end %>
+			    <% if @property.total_floors.present? %>
+			    <tr>
+		      		<td class="h5"> <i class="fa fa-unsorted"> </i> </td> <td> Total no. of floors are <%= @property.total_floors%> </td>
+			    </tr>
+			    <% end %>
+			</tbody>
+		</table>
+	</div>
+		
+
+
 		<div class="col-md-3 border-details">
 			<p> Bathrooms are <%= @property.bathroom %> 
 				and balconies are<%= @property.balcony %>

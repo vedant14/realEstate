@@ -20,6 +20,8 @@ gem 'aws-sdk-s3'
 gem 'image_processing', '~> 1.2'
 gem 'pundit', '~> 2.0', '>= 2.0.1'
 gem 'simple_form', '~> 4.1'
+gem "administrate", github: "thoughtbot/administrate"
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'capybara', '>= 2.15'

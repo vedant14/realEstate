@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "properties.scss";
+@import "font-awesome";
 
 
 
@@ -252,4 +253,8 @@ input[type=file][data-direct-upload-url][disabled] {
 
 .navig-pad {
   padding-right: 8px;
+}
+
+.table-card{
+  width: 350px;
 }
