@@ -204,6 +204,7 @@ input[type=file][data-direct-upload-url][disabled] {
   width: 30%;
   height: 80vh;
 }
+
 .sidebar {
   position: -webkit-sticky;
   position: sticky;
@@ -257,4 +258,8 @@ input[type=file][data-direct-upload-url][disabled] {
 
 .table-card{
   width: 350px;
+}
+
+.img-section {
+  margin-top: 1.5rem;
 }

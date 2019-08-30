@@ -1,9 +1,12 @@
-<div class="row">
+<div class="img-section">	
 	<% if @property.images.attached? %>
-		<% @property.images.each do |image| %>
-			<%= image_tag image.variant(resize: "500x400").processed, class:"property-img", alt: "#{@property.id}" %> 
-		<% end %>
+		<div class="btn btn-light" data-toggle="modal" data-target=".bd-example-modal-lg">
+		   <%= image_tag @property.images.first, class: "property-img" %>
+		</div>
+		<%= render "image" %>
 	<% else %>
-		<%= image_tag "https://images.unsplash.com/photo-1498373419901-52eba931dc4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",class:"property-img", alt: "Default Image" %> 
+			<%= image_tag "https://images.unsplash.com/photo-1498373419901-52eba931dc4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",class:"property-img", alt: "Default Image" %> 
 	<% end %>
-</div> 
+</div>
+
+
