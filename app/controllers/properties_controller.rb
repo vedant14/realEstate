@@ -2,7 +2,7 @@ class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
 
   def index
-    @properties = Property.filter(params.slice(:city, :service, :bedroom))
+    @properties = Property.filter(params.slice(:city, :service, :bedroom)).published_by_created
     @beds = Property.distinct.pluck(:bedroom).reverse
   end
 
@@ -13,13 +13,7 @@ class PropertiesController < ApplicationController
     $email = current_user.email if current_user && $email.blank?
     $phone = current_user.phone if current_user && $phone.blank?
   end
-  
-  def image
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
+
 
   def new
     @property = Property.new

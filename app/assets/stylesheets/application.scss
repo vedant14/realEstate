@@ -68,25 +68,19 @@ left: 25%;
 
 
 .carousel {
-  margin-bottom: 4rem;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  color: black;
-  bottom: 3rem;
-  z-index: 10;
+  margin-bottom: 2px;
 }
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 32rem;
+  height: 25rem;
 }
+
 .carousel-item > img {
   position: absolute;
   top: 0;
   left: 0;
   min-width: 100%;
-  height: 32rem;
 }
 
 .section-break {
@@ -110,15 +104,6 @@ left: 25%;
   padding-top: 5rem;
 }
 
-.property-img {
-  margin-right: auto;
-  margin-left: 5rem;
-  margin-top: 1rem;
-  align-content: center;
-  marigin-bottom: 10px; 
-  height: 550px;
-  width: 80%;
-}
 
 .border-details {
   border-left: 3px solid black;
@@ -188,27 +173,11 @@ input[type=file][data-direct-upload-url][disabled] {
 }
 
 
-.main,
-.sidebar {
-  padding: 15px;
-  margin: 20px;
-  background-color: #fff;
-}
 
-.main {
-  width: 60%;
-  height: 200vh;
-}
+/*For the sidebar*/
 
-.sidebar {
-  width: 30%;
-  height: 80vh;
-}
-
-.sidebar {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 5rem;
+.vl {
+  border-right: 0.25px solid grey;
 }
 
 .side-head {
@@ -216,8 +185,7 @@ input[type=file][data-direct-upload-url][disabled] {
 }
 
 .sidebar-module {
-  padding: 2rem;
-  /*margin: 0 -1rem 1rem;*/
+  margin: 0 -1rem 1rem;
 }
 .sidebar-module-inset {
   padding: 1rem;
@@ -233,8 +201,8 @@ input[type=file][data-direct-upload-url][disabled] {
   border-radius: .25rem;
   color: black;
 }
-.sidebar-cont{
-  padding: 1rem;
+.side-cont{
+  padding-top: 50px;
 }
 
 #rcorners2 {
@@ -256,10 +224,88 @@ input[type=file][data-direct-upload-url][disabled] {
   padding-right: 8px;
 }
 
-.table-card{
-  width: 350px;
-}
+
 
 .img-section {
   margin-top: 1.5rem;
+}
+
+/*Display images on show property page */
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+.property-img {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  vertical-align: bottom;
+}
+
+.property-img > img {
+  width: fit-content;
+  max-height: 500px;
+}
+
+.property-count {
+  background-color: grey;
+  height: auto;
+  margin: auto;
+  padding: 10px;
+  color: white;
+  font-size: 90px;
+  line-height: auto;
+  text-align: center;
+}
+/*Editing the modal*/
+
+.modal-content {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/*Property page*/
+
+.table-card{
+  width: 100%;
 }

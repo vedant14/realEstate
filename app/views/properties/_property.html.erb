@@ -15,7 +15,7 @@
           <%= link_to 'Edit', edit_property_path(property) ,  class: "btn btn-sm btn-outline-secondary" %>
           <%= link_to 'Delete', property, method: :delete, data: { confirm: 'Are you sure?' } ,  class: "btn btn-sm btn-outline-secondary" %>
         </div>
-        <h5 class=""> <%= badge_helper (property.service) %> <%= number_to_currency(property.price,  unit: "Rs. ", precision: 0) %></h5>
+        <h5 class=""> <%= badge_helper (property.service) %> <%= number_to_currency(property.price,  unit: "₹", precision: 0) %></h5>
       </div>
     </div>
   </div>

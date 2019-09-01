@@ -27,6 +27,10 @@ class Property < ApplicationRecord
   scope :bedroom, -> (bedroom) { where bedroom: bedroom}
 
 
+  def self.published_by_created
+    order("updated_at DESC")
+  end
+
 
 private
   # def correct_image_types
