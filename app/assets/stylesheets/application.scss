@@ -1,9 +1,22 @@
 @import "bootstrap";
+@import "properties.scss";
+@import "font-awesome";
+
+
 
 footer {
-  padding-top: 2rem;
-  margin-left: 5rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 5.5rem;
+  padding-top: 1rem;
 }
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+
 
 .body-main {
   padding-top: 3.5rem;
@@ -12,49 +25,62 @@ footer {
 }
 
 .hero-card {
-  margin-top: 10rem;
-  margin-bottom: 15rem;
-  margin-left: 5rem;
-  padding: 5rem;
-  width: 50rem;
+  margin: 20px;
+  width: "100%";
+  align-content: center;
+}
+
+
+.card-large{
+  margin-top: 60rem;
+}
+
+.image-hero {
+  min-height: 500px;
+  width: 100%;
 }
 
 #outerWrap {
 position: relative;
 z-index: 0;
-background-color: #00CCFF;
-width: 100%;
+background-image: url(home-bg.png);
+height: 50%;
+}
+
+#layer1, #layer2 {
+position: absolute;
+background-color: white;
+background-size: cover;
+background-position: center; 
+z-index: 1;
+border-radius: 15px;
+border: 0.5px solid grey;
+margin: 8px;
 }
 
 #layer1 {
-position: absolute;
-z-index: 1;
-height: 350px;
-width: 350px;
-top: 40px;
-left: 40px; 
+top: 15%;
+}
+#layer2 {
+top: 40%;
+left: 25%;
 }
 
+
 .carousel {
-  margin-bottom: 4rem;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  color: black;
-  bottom: 3rem;
-  z-index: 10;
+  margin-bottom: 2px;
 }
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 32rem;
+  height: 25rem;
 }
+
 .carousel-item > img {
   position: absolute;
   top: 0;
   left: 0;
   min-width: 100%;
-  height: 32rem;
 }
 
 .section-break {
@@ -68,11 +94,218 @@ left: 40px;
 
 .alternate-1 {
   background-color: #e3e3e3;
+  width: 100%;
 }
 
 .service {
   align-content: center;
-  padding-left: 10rem;
+  padding-left: 5rem;
   padding-bottom: 5rem;
   padding-top: 5rem;
+}
+
+
+.border-details {
+  border-left: 3px solid black;
+  border-right: 3px solid black;  
+}
+
+
+/* direct_uploads.css */
+ 
+.direct-upload {
+  display: inline-block;
+  position: relative;
+  padding: 2px 4px;
+  margin: 0 3px 3px 0;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  font-size: 11px;
+  line-height: 13px;
+}
+ 
+.direct-upload--pending {
+  opacity: 0.6;
+}
+ 
+.direct-upload__progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 0.2;
+  background: #0076ff;
+  transition: width 120ms ease-out, opacity 60ms 60ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+ 
+.direct-upload--complete .direct-upload__progress {
+  opacity: 0.4;
+}
+ 
+.direct-upload--error {
+  border-color: red;
+}
+ 
+input[type=file][data-direct-upload-url][disabled] {
+  display: none;
+}
+
+
+.album-index {
+  padding: 1rem;
+}
+
+.index-image  {
+  align-self: center;
+  padding: 1rem;
+  background-color: #f7f7f7;
+}
+
+
+.hrhead { 
+  border: 0;
+  height: 0;
+  border-top: 2px solid rgba(0, 0, 0, 0.6);
+  border-bottom: 0.5px solid rgba(128,128,128, 0.2);
+  margin-bottom: 5rem;
+  margin-top: 2rem;
+}
+
+
+
+/*For the sidebar*/
+
+.vl {
+  border-right: 0.25px solid grey;
+}
+
+.side-head {
+  color: black;
+}
+
+.sidebar-module {
+  margin: 0 -1rem 1rem;
+}
+.sidebar-module-inset {
+  padding: 1rem;
+  background-color: #AEBFA2;
+  border-radius: .25rem;
+}
+
+.sidebar-module-alert {
+  /*margin: 0 -1rem 1rem;*/
+}
+.sidebar-module-inset-alert {
+  background-color: #F21616;
+  border-radius: .25rem;
+  color: black;
+}
+.side-cont{
+  padding-top: 50px;
+}
+
+#rcorners2 {
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  padding: 20px; 
+  width: 200px;
+  height: 150px; 
+}
+
+
+.service-card {
+  margin: 10px;
+  padding: 2px;
+  text-align: center;
+}
+
+.navig-pad {
+  padding-right: 8px;
+}
+
+
+
+.img-section {
+  margin-top: 1.5rem;
+}
+
+/*Display images on show property page */
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+.property-img {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  vertical-align: bottom;
+}
+
+.property-img > img {
+  width: fit-content;
+  max-height: 500px;
+}
+
+.property-count {
+  background-color: grey;
+  height: auto;
+  margin: auto;
+  padding: 10px;
+  color: white;
+  font-size: 90px;
+  line-height: auto;
+  text-align: center;
+}
+/*Editing the modal*/
+
+.modal-content {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/*Property page*/
+
+.table-card{
+  width: 100%;
 }

@@ -1,0 +1,124 @@
+<div class="container-fluid">
+	<br>
+	<div class="row">
+		<h1> <%= @property.society_name %>, <%= @property.city %> </h1> 
+	</div>
+	<div class="row">
+		<h5>  <i class="fa fa-map-marker"> </i></td> <td> <%= @property.address %>,  <%= @property.pincode %> </h5> 
+	</div>
+	<div class="row">
+		<em> <h2> <%= badge_helper (@property.service) %> <%= number_to_currency(@property.price, unit: "₹", precision: 0) %> </em> </h2>
+	</div>
+	<hr>
+	<div class="row">
+		<h3>About the property <i class="fa fa-star"> </i> </h3>
+	</div>
+	<div class= "table-card" >
+		<table class="table table-borderless table-sm ">
+			<tbody>
+				<div class="row">
+					<span class="h6">
+						<%= @property.description %>
+					</span>
+				</div>
+			    <tr class="h5">
+		      		<td > <i class="fa fa-home"> </i> </td> 
+		      		<td> <%= @property.property_type %></td>
+			    </tr>
+				<tr>
+					<td></td>
+		      		<td> 
+		      			<div class="row">
+				      		<div class="col-md-4">
+					      		<span>
+					      			<%= @property.bedroom %> Bedroom
+					      		</span>
+				    		</div>
+				    		<div class="col-md-4">
+					      		<span>
+					      			<% if @property.bathroom? %>
+					      			<%= @property.bathroom %> Bath
+					      			<% end %>
+					      		</span>
+				    		</div>
+				    		<div class="col-md-4">
+					      		<span>
+					      			<% if @property.balcony? %>
+						      			<%= @property.balcony %> Balconies
+						      		<% end %>
+					      		</span> 
+				    		</div>
+			    		</div>
+		      		</td>
+			    </tr> 
+
+			    <tr class="h5">
+		      		<td><i class="fa fa-unsorted" > </i> </td> 
+		      		<td> Property Details </td>
+			    </tr>
+				<tr>
+					<td></td>
+		      		<td> 
+		      			<div class="row">
+				      		<div class="col-md-4">
+					      		<span>
+					      			<%= @property.furnishing %>
+					      		</span>
+				    		</div>
+				    		<div class="col-md-4">
+					      		<span>
+  					      			<% if @property.on_floor? %>
+						      			On Floor <%= @property.on_floor %> 
+						      		<% end %>
+					      		</span>
+					      	</div>
+				    		<div class="col-md-4">
+					      		<span>
+  					      			<% if @property.total_floors? %>
+						      			Total Floors <%= @property.total_floors %> 
+						      		<% end %>
+					      		</span>
+				    		</div>
+			    		</div>
+		      		</td>
+			    </tr> 
+
+			    <tr class="h5">
+		      		<td> <i class="fa fa-object-ungroup"> </i> </td> 
+		      		<td> Area </td>
+			    </tr>
+				<tr>
+					<td></td>
+		      		<td> 
+		      			<div class="row">
+				      		<div class="col-md-6">
+					      		<span>
+					      			Carpet area. <%= @property.carpet_area.to_i %> sq. ft.
+					      		</span>
+				    		</div>
+				    		<div class="col-md-6">
+					      		<span>
+					      			<% if @property.super_built_up_area? %>
+						      			Built-up area. <%= @property.super_built_up_area.to_i %> sq. ft.
+					      			<% end %>
+					      		</span>
+				    		</div>
+			    		</div>
+			    		<div class="row">
+			    			<div class="col-md-8">
+				    			<span>
+						      		<% if @property.parking? %>
+							     		<%= @property.parking %> available.
+						      		<% end %>
+						      	</span>
+			    			</div>
+			    		</div>
+		      		</td>
+			    </tr> 
+			</tbody>
+		</table>
+	</div>
+
+	<%= link_to 'Edit', edit_property_path(@property) %> |
+	<%= link_to 'Back', properties_path %>
+</div>

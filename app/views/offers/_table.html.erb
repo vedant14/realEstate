@@ -1,0 +1,29 @@
+<div class="table-responsive">
+    <table class="table table-responsive-sm table-hover">
+        <thead>
+          <tr>
+            <th class="w-5">ID</th>
+            <th class="w-15">Created Date</th>
+            <th class="w-35">Client Name</th>
+            <th class="w-35">Property id</th>
+            <th class="w-10">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @offers.each do |offer| %>
+              <tr>
+                <td> <%= offer.id %> </td>
+                <td> <%=offer.created_at.strftime("%d/%m/%Y")  %> </td>
+                <td> <%= offer.full_name %> |
+                    <em> <%= offer.phone %> </em>
+                    <br> <em> <%= offer.email %> </em>
+                </td>  
+                <td>  <%= offer.property.unit_no %>, <%= offer.property.address %>, <%= offer.property.city %> <br> <%=  link_to "View property", property_path(offer.property)  %> </td>
+                <td>
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                  </div> 
+                </td>
+              </tr>
+            <% end %>
+        </tbody>
+    </table>

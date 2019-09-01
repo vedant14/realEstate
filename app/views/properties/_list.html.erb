@@ -1,0 +1,20 @@
+<div id="filterrific_results">
+
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Country</th>
+      <th>Registered at</th>
+    </tr>
+    <% properties.each do |property| %>
+      <tr>
+        <td><%= link_to(property.full_name, property_path(property)) %></td>
+        <td><%= property.id %></td>
+        <td><%= property.city %></td>
+        <td><%= property.society_name %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

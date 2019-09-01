@@ -1,23 +1,97 @@
-<%= form_with(model: property, local: true) do |form| %>
-  <% if property.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
-
-      <ul>
-      <% property.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="container"> 
+  <%= simple_form_for @property do |form| %>
+    <%= form.error_notification %>
+    <h4 class="form-group"> Property Location </h4>
+    <div class= "form-group row">
+      <div class="col-md-2">
+        <%= form.input :unit_no, label: "Unit or Plot Number.", hint: "This won't be shown to anyone" %>
+      </div>
+      <div class="col-md-4">
+        <%= form.input :society_name, label: "Society or Street Name", placeholder: "Your Society or Street" %>
+      </div> <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <%= form.submit 'List my property', class: "btn btn-info btn-block d-none d-md-block" %>
+        </div>
     </div>
+    <div class= "form-group row">
+      <div class="col-md-9">
+        <%= form.input :address, label: "Address", hint: "This would be visible to everyone", placeholder: "Start typing..."%>
+      </div>
+    </div>
+    <div class= "form-group row">
+      <div class="col-md-4">
+        <%= form.input :city, label: "Enter the city.", placeholder: "Nagpur, Mumbai...." %>
+      </div>
+      <div class="col-md-4">
+        <%= form.input :pincode, label: "Pincode", hint: "Should be six digit" %>
+      </div> 
+    </div>
+    <hr>
+    <h4 class="form-group"> Property Details </h4>
+    <div class= "form-group row">
+      <div class="col-md-4">  
+        <%= form.input :property_type, collection: ['Residential Apartment','Individual Bunglow','Service Apartment','Villa', "Builder FLoor"], include_blank: false, label: "Select the type of property" %>
+      </div>
+      <div class="col-md-3">   
+        <%= form.input :furnishing, collection: ['Un-furnished', 'Semi-furnished', 'Fully-furnished'], include_blank: false, label:"Furnishing"  %>
+      </div>
+    </div>
+    <div class= "form-group row">
+      <div class="col-md-2">  
+        <%= form.input :bedroom, collection: 1..8 , include_blank: false, label: "Select the no. of bedrooms"%>
+      </div>
+      <div class="col-md-2"> 
+        <%= form.input :bathroom, collection: 1..8 , label: "Select the no. of bathrooms"%>
+      </div>
+      <div class="col-md-2"> 
+        <%= form.input :balcony,  collection: 0..8 , label: "Select the no. of balconies" %>
+      </div>
+      <div class="col-md-2">
+        <%= form.input :on_floor, collection: 0..8 , label: "On which floor is the property?"%>        
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-2">          
+        <%= form.input :carpet_area, as: :integer, hint: "In sq. ft." %>
+      </div>
+      <div class="col-md-2">          
+        <%= form.input :super_built_up_area, as: :integer, hint: "In sq. ft."  %>
+      </div>
+      <div class="col-md-3">
+        <%= form.input :parking, collection: ['No parking', 'Un-covered parking', 'Covered parking'] %>      
+      </div>
+    </div>
+    <hr>
+    <h4 class="form-group"> Services </h4>
+    <div class= "form-group row">
+      <div class="col-md-6">
+          <%= form.input :service, collection: [["To sell the property","Sell"],["To rent the property","Rent"]], include_blank: true, label:"What do you want to do?", hint: "Charges would be applicable." %>
+        </div>
+    </div>
+    <div class= "form-group row">
+      <div class="col-md-3">
+      <%= form.input :price, hint: "What rate do you expect for your property?", label: "Rent or Selling price" %>
+      </div>
+     <div class="col-md-3">
+      <%= form.input :availability, collection: [["Ready to move","ready_to_move"],["Under Construction","under_construction"]], label: "Availability" %>
+      </div>
+    </div>
+    <div class= "form-group row">
+      <div class="col-md-9">
+        <%= form.input :description, label: "Write something about your property", hint: "This would attract more audience", placeholder: "The property is located at ...."%>
+      </div>
+    </div>
+    <hr>
+    <h4 class="form-group"> Images </h4>
+    <div class="form-group row">
+        <%= form.file_field :images, multiple: true, direct_upload: true, label:"Upload the property images", hint: "Properties with images attract more audience", class: " btn btn-outline-dark" %>
+    </div>
+    <div class=" form-group row">
+      <div class="col-md-8"> </div>
+        <div class="col-md-4">
+        <%= form.submit 'List my property', class: "btn btn-info btn-block btn-lg" %>
+        </div>
+      </div>  
   <% end %>
+</div>     
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

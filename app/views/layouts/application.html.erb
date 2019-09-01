@@ -4,15 +4,23 @@
     <title>RealestateApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">   
+    <meta name="description" content="Free Bootstrap Theme by uicookies.com">
+    <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto:300" rel="stylesheet">
   </head>
 
+  </head>
   <body>
       <%= render "shared/home_nav" %>
       <div class="body-main">
-        <%= yield %>
+        <%= yield %> 
       </div>
       <%= render "shared/home_footer" %>
   </body>

@@ -1,14 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @property.address %>
-</p>
-
-<p>
-  <strong>Users:</strong>
-  <%= @property.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+<div class="container">
+	<%= render "show_images" %>
+	<div class="row">
+		<div class="col-md-8 vl">
+			<%= render "show_property" %>
+		</div>
+		<div class="col-md-4 side-cont">
+			<%= render "new_offer" %>
+		</div>
+	</div>
+</div>
