@@ -1,3 +1,6 @@
+<div class="row center">
+  <%= paginate @offers %>
+</div>
 <div class="table-responsive">
     <table class="table table-responsive-sm table-hover">
         <thead>
@@ -18,7 +21,7 @@
                     <em> <%= offer.phone %> </em>
                     <br> <em> <%= offer.email %> </em>
                 </td>  
-                <td>  <%= offer.property.unit_no %>, <%= offer.property.address %>, <%= offer.property.city %> <br> <%=  link_to "View property", property_path(offer.property)  %> </td>
+                <td>  <%= offer.property.bedroom %> Bedroom <%= offer.property.property_type %> in <%= offer.property.society_name %>,  <%= offer.property.city %><br> <%=  link_to "View property", property_path(offer.property)  %> </td>
                 <td>
                   <div class="btn-group" role="group" aria-label="Basic example">
                   </div> 
@@ -27,3 +30,6 @@
             <% end %>
         </tbody>
     </table>
+<div class="row center">
+  <%= paginate @offers %>
+</div>

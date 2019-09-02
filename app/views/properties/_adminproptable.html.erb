@@ -1,0 +1,48 @@
+<div class="row center">
+  <%= paginate @properties %>
+</div>
+<div class="table-responsive">
+    <table class="table table-responsive-sm table-hover">
+        <thead>
+          <tr>
+            <th class="w-5">ID</th>
+            <th class="w-15">Created Date</th>
+            <th class="w-35">User Name</th>
+            <th class="w-30">Property Address</th>
+            <th class="w-5">Offer count </th>
+            <th class="w-10">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @properties.each do |property| %>
+              <tr>
+                <td> <%= property.id %>  </td>
+                <td> <%=property.created_at.strftime("%d/%m/%Y")  %> </td>
+                <td> <%= property.user.full_name %> |
+                    <em> <%= property.user.phone %> </em>
+                    <br> <em> <%= property.user.email %> </em>
+                </td>  
+                <td>  <%= property.bedroom %> Bedroom <%= property.property_type %> in <%= property.society_name %>,  <%= property.city %> <%= badge_helper (property.service) %></td>
+                <td> <%= property.offers.count %>  <%= property.feature %><%= link_to 'View', property_path(property), class: "btn btn-link" %> </td>
+                <td>
+                  <div class="btn-group property-but">
+                    <%= link_to 'Edit', edit_property_path(property), class: "btn btn-light" if policy(property).edit? %> 
+                      <% if property.status == "Approved" %>
+                        <%= link_to featured_text(property), toggle_featured_property_path(property), class: featured_class(property) %> 
+                      <% end %>
+                    <% if property.status == "Pending" %>
+                      <%= link_to "List property", list_property_path(property), class: "btn btn-success btn-sm" if policy(property).list? %>
+                      <%= link_to "Reject property", unlist_property_path(property), class: "btn btn-danger btn-sm" if policy(property).unlist? %>
+                    <% else %>
+                      <%= link_to status_text(property), toggle_status_property_path(property), class: status_class(property) %> 
+                      <%= link_to 'Delete', property, method: :delete, data: { confirm: 'Are you sure?' } ,  class: "btn btn-danger" if policy(property).destroy? %>
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+        </tbody>
+    </table>
+<div class="row center">
+  <%= paginate @properties %>
+</div>

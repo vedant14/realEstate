@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<br>
 	<div class="row">
-		<h1> <%= @property.society_name %>, <%= @property.city %> </h1> 
+		<h1><% if user_or_admin(@property) %> Unit <%= @property.unit_no %> - <% end %>  <%= @property.society_name %>, <%= @property.city %> </h1> 
 	</div>
 	<div class="row">
 		<h5>  <i class="fa fa-map-marker"> </i></td> <td> <%= @property.address %>,  <%= @property.pincode %> </h5> 
@@ -118,7 +118,4 @@
 			</tbody>
 		</table>
 	</div>
-
-	<%= link_to 'Edit', edit_property_path(@property) %> |
-	<%= link_to 'Back', properties_path %>
 </div>

@@ -1,7 +1,7 @@
 class Property < ApplicationRecord
   include Filterable
   belongs_to :user
-  has_many :offers
+  has_many :offers, dependent: :destroy
   attr_writer :current_step
 
   validates :user_id, presence: true
@@ -17,19 +17,33 @@ class Property < ApplicationRecord
   validates :price, presence: true
   validates :pincode, presence: true
 
+  enum status: {Pending: 0, Approved: 1, Rejected: 2}
+  enum feature: {unstar: 0, star: 1}
 
-  enum status: { Pending: 0, Approved: 1, Rejected: 2}
   has_many_attached :images
 
 
   scope :city, -> (city) { where (["city || society_name ILIKE ?", "%#{city}%"])}
   scope :service, -> (service) { where service: service}
   scope :bedroom, -> (bedroom) { where bedroom: bedroom}
-
+  scope :status, -> (status) { where status: status}
 
   def self.published_by_created
+    order("created_at DESC")
+  end
+
+  def self.published_by_updated
     order("updated_at DESC")
   end
+  def self.listed
+    where(status: "Approved")
+  end
+
+
+
+  after_save :un_star_property, if: :Rejected?
+
+
 
 
 private
@@ -42,6 +56,11 @@ private
   #       errors.add(:image, 'required')
   #     end  
   # end  
+
+
+    def un_star_property
+      self.unstar!
+    end
 
 end    
 

@@ -1,7 +1,8 @@
 <div class = 'container'>
+<%= render "offers/search" %>
   <% if @offers.count == 0  %>
     <h2> No more active offers </h2> 
   <% else %>
-    <%= render "offers/table" %>
+	    <%= render "offers/table" %>
   <% end %>  
 </div>

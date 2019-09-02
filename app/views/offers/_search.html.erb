@@ -1,0 +1,17 @@
+<h4 class="card-title">Search from the user.</h4>
+<div class="card-text">
+	<div class="form-group row">
+		<div class="col-md-9">
+			<%= form_tag(offers_path, method: :get, class:"form-inline mt-2 mt-md-0") do %>
+			<div class="form-group row">
+				<div class="col-md-12">
+  					<%= search_field_tag :q, params[:q] , placeholder: "Search via name or number", class: "form-control mr-sm-2" %>
+				</div>
+			</div>
+			<div class="col-md-3">
+	 			 <%= submit_tag 'Search', class: "btn btn-primary my-2 my-sm-0", name: nil %>
+			</div>	
+			<% end %>
+		</div>
+	</div>
+</div>

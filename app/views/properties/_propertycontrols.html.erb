@@ -1,0 +1,14 @@
+<div class="btn-group property-but">
+	<%= link_to 'Back', (request.referrer || properties_path), class: "btn btn-light" %>
+	<%= link_to 'Edit', edit_property_path(@property), class: "btn btn-light" if policy(@property).edit? %> 
+	<% if @property.status == "Approved" %>
+	 	<%= link_to featured_text(@property), toggle_featured_property_path(@property), class: featured_class(@property) %> 
+	<% end %>
+	 <% if @property.status == "Pending" %>
+	 	<%= link_to "List this property", list_property_path(@property), class: "btn btn-success" if policy(@property).list? %>
+	 	<%= link_to "Reject this property", unlist_property_path(@property), class: "btn btn-danger" if policy(@property).unlist? %>
+	 <% else %>
+	 	<%= link_to status_text(@property), toggle_status_property_path(@property), class: status_class(@property) %> 
+	 	<%= link_to 'Delete this property', @property, method: :delete, data: { confirm: 'Are you sure?' } ,  class: "btn btn-danger" if policy(@property).destroy? %>
+	 <% end %>
+</div>

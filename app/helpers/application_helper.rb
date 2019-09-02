@@ -1,11 +1,24 @@
 module ApplicationHelper
 
+  def user_or_admin record
+    if current_user.present?
+      record.user_id == current_user.id || admin?
+    end
+  end
+
+
+  def admin?
+    if current_user.present?
+      current_user.type == "AdminUser"
+    end
+  end
+
   def badge_helper badge = "Unknown Status"
     badge_type = ' ' 
     if badge == 'Sell'
        badge_style = 'badge-danger'
        badge_content = 'For Sell'
-    else
+    elsif badge == 'Rent'
       badge_style = 'badge-warning'
       badge_content = 'For Rent'
     end

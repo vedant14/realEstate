@@ -1,0 +1,8 @@
+<div class = 'container'>
+	<%= render "adminsearch" %>
+	<% if @properties.count != 0 %>
+		<%= render "adminproptable" %>
+	<% else %>
+		<h1> No properties match this search criteria </h1>
+	<% end %>
+</div>

@@ -1,5 +1,36 @@
 module PropertiesHelper
 
+  def status_text property
+    if property.Approved?
+      "De-list property"
+    else
+      "List property"  
+    end  
+  end  
+
+  def status_class property
+    if property.Approved?
+      "btn btn-outline-danger"
+    else
+      "btn btn-outline-success" 
+    end  
+  end  
+
+  def featured_text property
+    if property.star?
+      "Un-Star"
+    else
+      "Star"  
+    end  
+  end  
+
+  def featured_class property
+    if property.star?
+      "btn btn-outline-danger"
+    else
+      "btn btn-outline-success" 
+    end  
+  end  
 
   def carousel_for(images)
     Property.new(self, images).html

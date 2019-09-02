@@ -1,0 +1,41 @@
+<h1 class="card-title featured-prop">Showing all <u> <%= params[:status] %> </u> Properties</h1>
+<div class="card-text">
+	<%= form_tag(view_properties_path, method: :get) do %>
+		<div class="form-group row">
+			<div class="col-md-9">
+				<div class="form-group row">
+					<div class="col-md-5">
+						<%= search_field_tag :city, params[:city] , placeholder: "Type a society or city..", class: "form-control" %>
+					</div>
+					<div class="col form-inline"> <strong> <u>
+						<%= label_tag :status, "Find by status" %> 
+					</div>
+					<div class="col-md-4">
+							<%= select_tag :status, options_for_select(["Pending", "Approved", "Rejected"], params[:status]), class: "form-control" ,include_blank: true %></u></strong> 
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-md-2 form-inline">
+						<%= label_tag :bedroom, "No. of rooms?" %>
+					</div>
+					<div class="col-md-3">
+						<%= select_tag :bedroom, options_for_select(["0", "1", "2", "3","4","5","6","7","8"], params[:bedroom]),include_blank: true, class: "form-control" %>
+					</div>
+					<div class="col form-inline">
+						<%= label_tag :service, "Service" %> 
+					</div>
+					<div class="col-md-4">
+						<%= select_tag :service, options_for_select([
+																["Rent","Rent"],
+																["Buy","Sell"]
+																], 
+																params[:service]), class: "form-control", include_blank: true %>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+	 			 <%= submit_tag 'Search', class: "btn btn-primary my-2 my-sm-0", name: nil %>
+			</div>	
+		</div>
+	<% end %>
+</div>

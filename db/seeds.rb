@@ -7,6 +7,13 @@
 		password_confirmation: "asdfasdf"
 	)
 end
+AdminUser.create!(
+	full_name: "Vedant Admin",
+	phone: "9767137428",
+	email: "admin@vedant.com",
+	password: "asdfasdf",
+	password_confirmation: "asdfasdf"
+)
 
 cities = ['Nagpur', 'Mumbai', 'Bengaluru', 'Delhi', 'Pune']
 societies = ['Mahindra Bloomdale', 'Godrej Anandam', 'La Sallete', 'Kalpataru', 'Tata Capital']

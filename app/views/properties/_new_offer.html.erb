@@ -5,7 +5,7 @@
 			<%= simple_form_for @offer do |form| %>
 			    <%= form.error_notification %>
 				<% flash.each do |key, value| %>
-				    <% if flash[:notice] %>
+				    <% if value=="Great we will contact you shortly!" %>
 						<div class="card">
 							<div class="sidebar-module sidebar-module-inset">
 								<div class="alert alert-<%= key %>"><%= value %></div>
@@ -17,13 +17,13 @@
 							</div>			
 					<% end %>
 				<% end %>
-				<div class="container">
-					<% unless flash[:notice] %>
+				<% unless flash[:notice]=="Great we will contact you shortly!" %>
+					<div class="container">
 						<div class= "form-group row">
 							<%= form.input :full_name, input_html: { value: "#{$full_name}" },label: "Your Name" %>
 						</div>
 						<div class= "form-group row">
-							<%= form.input :phone, input_html: { value: "#{$phone}" },label: "Your Phone Number" %>
+							<%= form.input :phone, input_html: { value: "#{$phone}" },label: "Your Phone Number", hint: "Only 10 digits allowed" %>
 						</div>
 						<div class= "form-group row">
 							<%= form.input :email, input_html: { value: "#{$email}" },label: "Your Email Address" %>
@@ -31,8 +31,8 @@
 						<div class="form-group row">
 							<%= form.submit 'I am Interested', class: "btn btn-info btn-block" %>
 						</div>
-		     		<%end %>
-				</div>
+					</div>
+		     	<%end %>
 			<% end %>
 		</div>
 	</div>
