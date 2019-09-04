@@ -2,9 +2,9 @@ module PropertiesHelper
 
   def status_text property
     if property.Approved?
-      "De-list property"
+      "De-list"
     else
-      "List property"  
+      "List"  
     end  
   end  
 

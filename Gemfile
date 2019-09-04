@@ -23,6 +23,8 @@ gem 'simple_form', '~> 4.1'
 gem "administrate", github: "thoughtbot/administrate"
 gem "font-awesome-rails"
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'rails_12factor', group: :production
+
 
 group :development, :test do
   gem 'capybara', '>= 2.15'

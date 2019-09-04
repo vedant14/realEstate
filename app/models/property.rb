@@ -27,6 +27,7 @@ class Property < ApplicationRecord
   scope :service, -> (service) { where service: service}
   scope :bedroom, -> (bedroom) { where bedroom: bedroom}
   scope :status, -> (status) { where status: status}
+  scope :feature, -> (feature) { where feature: feature}
 
   def self.published_by_created
     order("created_at DESC")
@@ -39,11 +40,9 @@ class Property < ApplicationRecord
     where(status: "Approved")
   end
 
-
-
-  after_save :un_star_property, if: :Rejected?
-
-
+  def self.stared
+    where(feature: "star")
+  end
 
 
 private
@@ -58,9 +57,6 @@ private
   # end  
 
 
-    def un_star_property
-      self.unstar!
-    end
 
 end    
 

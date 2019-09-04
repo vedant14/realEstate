@@ -4,14 +4,22 @@
 		<div class="form-group row">
 			<div class="col-md-9">
 				<div class="form-group row">
-					<div class="col-md-5">
+					<div class="col">
 						<%= search_field_tag :city, params[:city] , placeholder: "Type a society or city..", class: "form-control" %>
 					</div>
+				</div>
+				<div class="form-group row">
 					<div class="col form-inline"> <strong> <u>
 						<%= label_tag :status, "Find by status" %> 
 					</div>
 					<div class="col-md-4">
 							<%= select_tag :status, options_for_select(["Pending", "Approved", "Rejected"], params[:status]), class: "form-control" ,include_blank: true %></u></strong> 
+					</div>
+					<div class="col form-inline"> 
+						<%= label_tag :feature, "Stared Properties?" %> 
+					</div>
+					<div class="col-md-4">
+							<%= select_tag :feature, options_for_select(["star", "unstar"], params[:feature]), class: "form-control" ,include_blank: true %>
 					</div>
 				</div>
 				<div class="form-group row">

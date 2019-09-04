@@ -1,25 +1,33 @@
 <div class="container-fluid">
 	<div class="section-break">  		
 	    <div class="container">
-	       <h2>Latest Properties</h2> <br>
+	       <h2>Featured Listings</h2> <br>
 	          <div class="row">
-	            <div class="col-md-4">
+	          	<% @properties.each do |property| %>
+	            <div class="col-md-6">
 	            	<div class="card featured-prop">
-		                <a href="#" class="aa-properties-item-img">
-							<%= image_tag "img/item/1.jpg", width: '100%', alt: "Office Office" %>                 </a>
-		                  <div class="card-body">
-		                    For Sale
-
-		                	<span>5 Rooms</span>
-		                    <span>2 Beds</span>
-		                    <span>3 Baths</span>
-		                    <span>1100 SQ FT</span>
-		                    <span> Rs. 23000</span>
-		                    <h3><a href="#">Appartment Title</a></h3>
-		                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim molestiae vero ducimus quibusdam odit vitae.</p>                      
-			                <%= link_to "View more", root_path, class: "btn btn-primary btn-block" %>
+				      <% if property.images.attached? %> 
+				          <%= link_to image_tag(property.images.first, width: '100%') , property, class: "img-thumbnail"  %>
+				      <% else %>
+				        <%= link_to image_tag("img/item/1.jpg", width: '100%'),property, class: "img-thumbnail" %> 
+				      <% end %> 
+					    <div class="">
+					      <span class="card-text mh">  <% if user_or_admin property %> Unit <%= property.unit_no %> - <% end %> <%= property.bedroom %> Bedroom <%= property.property_type %> in  <%= property.society_name %>,  <%= property.city %></span>
+					    </div>
+					    <div class="card-body"> 
+					      <p class="card-text"> <%= property.furnishing %> and carpet area is <%= number_with_precision(property.carpet_area, precision: 0) %> sq. mt.</p>
+					      <div class="d-flex justify-content-between align-items-center">
+					        <div class="btn-group">
+					          <%= link_to 'Edit', edit_property_path(property) ,  class: "btn btn-sm btn-outline-secondary" if policy(property).edit? %>
+					          <%= link_to 'Delete', property, method: :delete, data: { confirm: 'Are you sure?' } ,  class: "btn btn-sm btn-outline-secondary" if policy(property).destroy? %>
+					        </div>
+					        <span class="h5"> <%= badge_helper (property.service) %> <%= number_to_currency(property.price,  unit: "₹", precision: 0) %></span>
+					      </div>
+					    </div>                   
+			                <%= link_to "View more", property_path(property), class: "btn btn-primary btn-block" %>
 			            </div>
 		            </div>
+	            <% end %>
 	            </div>
 	        </div>
 	    </div>

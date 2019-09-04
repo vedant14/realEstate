@@ -9,7 +9,7 @@ class PropertiesController < ApplicationController
   end
 
   def view_properties
-    @properties = Property.filter(params.slice(:city, :service, :bedroom, :status)).published_by_created.page(params[:page]).per(20)
+    @properties = Property.filter(params.slice(:city, :service, :bedroom, :status, :feature)).published_by_created.page(params[:page]).per(20)
     authorize @properties
   end
 
