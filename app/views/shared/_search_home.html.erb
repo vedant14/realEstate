@@ -1,3 +1,4 @@
+
 <%= form_tag(properties_path, method: :get, class:"form-inline mt-2 mt-md-0") do %>
   <%= search_field_tag :city, params[:city] , placeholder: "Type a society or city..", class: "form-control mr-sm-2" %>
   <%= submit_tag 'Search', class: "btn btn-primary my-2 my-sm-0", name: nil %>

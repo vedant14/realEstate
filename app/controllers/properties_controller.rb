@@ -39,7 +39,8 @@ class PropertiesController < ApplicationController
   def toggle_featured
     if @property.unstar?
         @property.star!
-        { notice: 'Property is now featured'}
+        { notice: 'Property is now featured.'}
+        { alert: "Only six starred properties will be displayed"}
     else
         @property.unstar!
         { notice: 'Property is now removed from featured'}

@@ -16,4 +16,7 @@ as defined by the routes in the `admin/` namespace
       class: "navigation__link navigation__link--#{nav_link_state(resource)}"
     ) %>
   <% end %>
+<%= link_to "View all properites", view_properties_path, class: "navigation__link" %>
+<%= link_to "View all Offers", offers_path, class: "navigation__link" %>
+
 </nav>

@@ -16,6 +16,7 @@ class Property < ApplicationRecord
   validates :service, presence: true
   validates :price, presence: true
   validates :pincode, presence: true
+  # validate :limit_on_featured
 
   enum status: {Pending: 0, Approved: 1, Rejected: 2}
   enum feature: {unstar: 0, star: 1}
@@ -23,15 +24,24 @@ class Property < ApplicationRecord
   has_many_attached :images
 
 
-  scope :city, -> (city) { where (["city || society_name ILIKE ?", "%#{city}%"])}
+  scope :city, -> (city) { where (["city || society_name || address || pincode ILIKE ?", "%#{city}%"])}
   scope :service, -> (service) { where service: service}
   scope :bedroom, -> (bedroom) { where bedroom: bedroom}
   scope :status, -> (status) { where status: status}
-  scope :feature, -> (feature) { where feature: feature}
+  scope :feature, -> (feature) { where feature: feature, status: "Approved"}
 
   def self.published_by_created
     order("created_at DESC")
   end
+
+  # def limit_on_featured 
+  #   if Property.where(feature: "star").count > 6 
+  #      prop = Property.where(feature: "star").order("updated_at ASC").last
+  #      prop.unstar!
+  #    end
+  # end
+
+
 
   def self.published_by_updated
     order("updated_at DESC")

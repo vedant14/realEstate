@@ -9,7 +9,7 @@ footer {
   bottom: 0;
   width: 100%;
   height: 5.5rem;
-  margin-top: 1rem;
+  margin-top: 5rem;
 }
 
 footer p {
@@ -17,6 +17,11 @@ footer p {
 }
 
 
+.bgcard {
+  background-color: #eee;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+}
 
 .body-main {
   padding-top: 3.5rem;
@@ -55,6 +60,8 @@ z-index: 1;
 border-radius: 15px;
 border: 0.5px solid grey;
 margin: 8px;
+box-shadow: 8px 10px 8px 0 rgba(0, 0, 0, 0.5), 5px 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 #layer1 {
@@ -83,8 +90,8 @@ left: 25%;
 }
 
 .section-break {
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
 }
 
 .featured-prop {
@@ -99,9 +106,7 @@ left: 25%;
 
 .service {
   align-content: center;
-  padding-left: 5rem;
-  padding-bottom: 5rem;
-  padding-top: 5rem;
+  padding-top: 2rem;
 }
 
 
@@ -216,10 +221,20 @@ input[type=file][data-direct-upload-url][disabled] {
 
 
 .service-card {
-  margin: 10px;
-  padding: 2px;
+ padding: 20px;
   text-align: center;
 }
+
+
+.service-card:hover {
+  box-shadow: 8px 10px 8px 0 rgba(0, 0, 0, 0.2), 5px 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.featured-prop:hover {
+  box-shadow: 8px 10px 8px 0 rgba(0, 0, 0, 0.2), 5px 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 
 .navig-pad {
   padding-right: 8px;
