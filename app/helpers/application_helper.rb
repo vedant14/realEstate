@@ -25,4 +25,11 @@ module ApplicationHelper
     badge_type << "<span class='badge #{badge_style}'>#{badge_content}</span>"
     badge_type.html_safe
   end
+
+ 
+  def copyright_generator
+    DevcampViewTool::Renderer.copyright 'Homzhub', 'All rights reserved'
+  end
+
+
 end
