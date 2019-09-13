@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy, :list, :unlist, :toggle_status, :toggle_featured]
-  after_action :verify_authorized, except: [:index]
+  after_action :verify_authorized, except: [:index, :delete_image_attachment]
   before_action :authenticate_user!, only: [:create, :destroy, :new, :edit, :update]
 
 
@@ -8,9 +8,26 @@ class PropertiesController < ApplicationController
     @properties = Property.filter(params.slice(:city, :service, :bedroom)).published_by_updated.listed.page(params[:page]).per(9)
   end
 
-  def view_properties
-    @properties = Property.filter(params.slice(:city, :service, :bedroom, :status, :feature)).published_by_created.page(params[:page]).per(20)
-    authorize @properties
+  def new
+    @property = Property.new
+    authorize @property
+  end
+
+  def create
+    @property = Property.new(property_params)
+    if @property.user_id?
+      @property.user_id == current_user.id
+    end
+    respond_to do |format|
+      if @property.save
+        format.html { redirect_to @property, notice: 'Property was successfully created.' }
+        format.json { render :show, status: :created, location: @property }
+      else
+        format.html { render :new }
+        format.json { render json: @property.errors, status: :unprocessable_entity }
+      end
+    end
+    authorize @property
   end
 
   def show
@@ -23,13 +40,45 @@ class PropertiesController < ApplicationController
     authorize @property
   end
 
+  def edit
+    authorize @property
+  end
+
+  def update
+    respond_to do |format|
+      if @property.update(property_params)
+        format.html { redirect_to @property, notice: 'Property was successfully updated.' }
+        format.json { render :show, status: :ok, location: @property }
+      else
+        format.html { render :edit }
+        format.json { render json: @property.errors, status: :unprocessable_entity }
+      end
+    end
+    authorize @property
+  end
+
+  def destroy
+    @property.destroy
+    respond_to do |format|
+      format.html { redirect_to properties_url, notice: 'Property was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+    authorize @property
+  end
+
+  def view_properties
+    @properties = Property.filter(params.slice(:city, :service, :bedroom, :status, :feature)).published_by_created.page(params[:page]).per(20)
+    authorize @properties
+  end
+
+
 
   def toggle_status
     if @property.Rejected?
         @property.Approved! 
         {notice: 'Property has been listed'}
     else
-        @property.Rejected!
+        @property.Pending!
         { notice: 'Property has been Un-listed' }  
     end
     redirect_to request.referrer
@@ -65,53 +114,12 @@ class PropertiesController < ApplicationController
   end
 
 
-  def new
-    @property = Property.new
-    authorize @property
+  def delete_image_attachment
+    @property_image = ActiveStorage::Attachment.find(params[:id])
+    @property_image.purge
+    redirect_to property_path($propid)
   end
 
-  def create
-    @property = Property.new(property_params)
-    if @property.user_id?
-      @property.user_id == current_user.id
-    end
-    respond_to do |format|
-      if @property.save
-        format.html { redirect_to @property, notice: 'Property was successfully created.' }
-        format.json { render :show, status: :created, location: @property }
-      else
-        format.html { render :new }
-        format.json { render json: @property.errors, status: :unprocessable_entity }
-      end
-    end
-    authorize @property
-  end
-
-  def edit
-    authorize @property
-  end
-
-  def update
-    respond_to do |format|
-      if @property.update(property_params)
-        format.html { redirect_to @property, notice: 'Property was successfully updated.' }
-        format.json { render :show, status: :ok, location: @property }
-      else
-        format.html { render :edit }
-        format.json { render json: @property.errors, status: :unprocessable_entity }
-      end
-    end
-    authorize @property
-  end
-
-  def destroy
-    @property.destroy
-    respond_to do |format|
-      format.html { redirect_to properties_url, notice: 'Property was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-    authorize @property
-  end
 
   private
     def set_property

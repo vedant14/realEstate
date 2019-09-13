@@ -5,7 +5,7 @@
       <h4 class="form-group"> Choose the user </h4>    
       <div class= "form-group row">
         <div class="col-md-2">
-          <%= form.association :user, label_method: :full_name, value_method: :id, include_blank: false , selected: current_user.id  %>
+          <%= form.association :user, label_method: :full_name, value_method: :id, include_blank: false , selected: @property.user_id ||current_user.id  %>
         </div>
        </div>
     <% end %>
@@ -95,6 +95,11 @@
     <div class="form-group row">
         <%= form.file_field :images, multiple: true, direct_upload: true, label:"Upload the property images", hint: "Properties with images attract more audience", class: " btn btn-outline-dark" %>
     </div>
+
+    <% if @property.images.attached? %>
+      <h3> <%= @property.images.count %> image(s) were previously uploaded. </h3>
+    <% end %>
+    <hr>
     <div class=" form-group row">
       <div class="col-md-8"> </div>
         <div class="col-md-4">

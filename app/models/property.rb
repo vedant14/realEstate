@@ -2,13 +2,21 @@ class Property < ApplicationRecord
   include Filterable
   belongs_to :user
   has_many :offers, dependent: :destroy
-  attr_writer :current_step
 
+  # attr_accessor :remove_image
+  
+  # after_save :purge_image, if: :remove_image
+  # private def purge_image
+  #   image = pr
+  #   image.purge_later
+  # end
+
+  
   validates :user_id, presence: true
   validates :address, presence: true
   validates :bedroom, presence: true
   validates :city, presence: true
-  # validate :correct_image_types
+  validate :correct_image_types
   validates :unit_no, presence: true
   validates :property_type, presence: true
   validates :carpet_area, presence: true
@@ -56,15 +64,15 @@ class Property < ApplicationRecord
 
 
 private
-  # def correct_image_types
-
-  #   image.each do |image|
-  #     if image.attached? && !image.content_type.in?(%w(image/jpeg image/png))
-  #       errors.add(:image, 'must be JPEG or PNG.')
-  #     elsif image.attached? == false
-  #       errors.add(:image, 'required')
-  #     end  
-  # end  
+  def correct_image_types
+    if images.attached?
+      images.each do |image|
+        if !image.content_type.in?(%w(image/jpeg image/png))
+          errors.add(:image, 'must be JPEG or PNG.')
+        end  
+      end
+    end
+  end  
 
 
 

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get :list
       get :unlist
       get :toggle_featured
+      delete :delete_image_attachment
     end
   end
   resources :offers

@@ -1,0 +1,54 @@
+<div class="modal fade" id="editImage" tabindex="-1" role="dialog" aria-labelledby="editImageTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content white-background">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editImageTitle">Images for this property</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+			<div class="row">
+				<div class="col-md-10">
+				<%= simple_form_for @property do |form| %>
+				    <%= form.error_notification %>
+				    
+				    <h4 class="form-group"> Upload more Images </h4>
+				    <div class="form-group row">
+				        <%= form.file_field :images, multiple: true, direct_upload: true, label:"Upload the property images", hint: "Properties with images attract more audience", class: " btn btn-outline-dark" %>
+				    </div>
+				    <hr>
+				    <div class=" form-group row">
+				      <div class="col-md-8"> </div>
+				        <div class="col-md-4">
+				        <%= form.submit 'Upload Images', class: "btn btn-info" %>
+				        </div>
+				    </div> 
+			    </div> 
+			<% end %>
+			</div>
+		  	<% if @property.images.attached? %>
+		 	 <h4 class="form-group"> Previously uploaded Images </h4>
+		 	 <div class="row">
+		   		<% @property.images.each do |space_image| %>
+		   		<div class="col-md-4 container-hover">
+		    		<div class="hover-text">
+		    		<%= image_tag space_image, width: "100%" %> 
+					</div>
+					<div class="overlay">
+				   	 <div class="text">
+				    	<%= link_to 'Delete this image', delete_image_attachment_property_url(space_image.id),
+		                method: :delete,
+		                  data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+		             </div>
+		     		</div>
+		     	</div>
+		    	<% end %>
+		    </div>
+		  <% end %>
+		</div>
+      </div>
+  	</div>
+  </div>
+</div>

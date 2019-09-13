@@ -22,7 +22,7 @@ class PropertyPolicy < ApplicationPolicy
   	end
 
   	def edit?
-	  	return true if (user.present? || admin?) && record.status != "Approved"
+	  	return true if (user.present? && record.status != "Approved") || admin?
   	end
 
   	def update?
@@ -52,6 +52,8 @@ class PropertyPolicy < ApplicationPolicy
   	def destroy?
 	   	return true if (record.status != "Approved") 
 	  end
+
+    
   protected
   
     def user_or_admin
