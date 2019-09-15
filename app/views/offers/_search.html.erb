@@ -1,11 +1,14 @@
-<h4 class="card-title">Search from the user.</h4>
+<h1 class="card-title section-break">Showing all <u> <%= params[:status] %> </u> Offers</h1>
 <div class="card-text">
 	<div class="form-group row">
-		<div class="col-md-9">
+		<div class="col-md-12">
 			<%= form_tag(offers_path, method: :get, class:"form-inline mt-2 mt-md-0") do %>
 			<div class="form-group row">
-				<div class="col-md-12">
-  					<%= search_field_tag :q, params[:q] , placeholder: "Search via name or number", class: "form-control mr-sm-2" %>
+				<div class="col-md-8">
+  					<%= search_field_tag :q, params[:q] , placeholder: "Find by User name or number", class: "form-control mr-sm-2" %>
+				</div>
+				<div class="col-md-4">
+					<%= select_tag :status, options_for_select(["Open", "Closed", "Dead", ["All",'']], params[:status]), class: "form-control" ,include_blank: false %>
 				</div>
 			</div>
 			<div class="col-md-3">

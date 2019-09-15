@@ -78,7 +78,7 @@ class PropertiesController < ApplicationController
         @property.Approved! 
         {notice: 'Property has been listed'}
     else
-        @property.Pending!
+        @property.Rejected!
         { notice: 'Property has been Un-listed' }  
     end
     redirect_to request.referrer

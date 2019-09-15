@@ -19,4 +19,14 @@ class OfferPolicy < ApplicationPolicy
 	  	end
     end
 
+
+    def open?
+      admin?
+    end
+    def dead?
+      admin?
+    end
+    def closed?
+      admin?
+    end
 end

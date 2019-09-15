@@ -17,7 +17,15 @@ Rails.application.routes.draw do
       delete :delete_image_attachment
     end
   end
-  resources :offers
+ 
+  resources :offers do
+    member do 
+      get :open
+      get :dead
+      get :closed
+    end
+  end
+
   get 'view-properties', to: 'properties#view_properties'
 
   
