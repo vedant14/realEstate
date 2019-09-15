@@ -11,7 +11,6 @@
     <% end %>
     <h4 class="form-group"> Property Location </h4>
      <div class= "form-group row">
-
       <div class="col-md-2">
         <%= form.input :unit_no, label: "Unit or Plot Number.", hint: "This won't be shown to anyone" %>
       </div>
@@ -24,7 +23,7 @@
     </div>
     <div class= "form-group row">
       <div class="col-md-9">
-        <%= form.input :address, label: "Address", hint: "This would be visible to everyone", placeholder: "Start typing..."%>
+        <%= form.input :address, as: :string %>
       </div>
     </div>
     <div class= "form-group row">
@@ -87,7 +86,7 @@
     </div>
     <div class= "form-group row">
       <div class="col-md-9">
-        <%= form.input :description, label: "Write something about your property", hint: "This would attract more audience", placeholder: "The property is located at ...."%>
+        <%= form.input :description, as: :string , label: "Write something about your property", hint: "This would attract more audience", placeholder: "The property is located at ...."%>
       </div>
     </div>
     <hr>

@@ -20,7 +20,7 @@ societies = ['Mahindra Bloomdale', 'Godrej Anandam', 'La Sallete', 'Kalpataru', 
 types = ['Residential Apartment', 'Villa', 'Independent Bunglow']
 furnishings = ['Un-furnished', 'Semi-furnished', 'Fully-furnished']
 avail = ['ready_to_move', 'under_construction', 'ready_to_move']
-
+feature_list = ['unstar','unstar','unstar','unstar','unstar','unstar','star']
 
 5.times do |property|
   Property.create!(
@@ -43,7 +43,9 @@ avail = ['ready_to_move', 'under_construction', 'ready_to_move']
 	availability: avail.sample,
 	price: "#{(property+1) * 1200}",
 	parking: "#{(property+1)}",
-	description: "Great view on apartment"
+	description: "Great view on apartment",
+	status: "Approved",
+	feature: feature_list.sample
     )
 end
 puts '5 one bhk Rent property posted'
@@ -69,7 +71,9 @@ puts '5 one bhk Rent property posted'
 	availability: avail.sample,
 	price: "#{(property+1) * 10000}",
 	parking: "#{(property+1)}",
-	description: "Great view on apartment"
+	description: "Great view on apartment",
+	status: "Approved",
+	feature: feature_list.sample
     )
 end
 puts '5 one bhk Sell property posted'
@@ -96,7 +100,9 @@ puts '5 one bhk Sell property posted'
 	availability: avail.sample,
 	price: "#{(property+1) * 2000}",
 	parking: "#{(property+1)}",
-	description: "Great view on apartment"
+	description: "Great view on apartment",
+	status: "Approved",
+	feature: feature_list.sample
     )
 end
 puts '5 two bhk Rent property posted'
@@ -124,7 +130,9 @@ puts '5 two bhk Rent property posted'
 	availability: avail.sample,
 	price: "#{(property+1) * 13000}",
 	parking: "#{(property+1)}",
-	description: "Great view on apartment"
+	description: "Great view on apartment",
+	status: "Approved",
+	feature: feature_list.sample
     )
 end
 puts '5 two bhk Sell property posted'
@@ -151,7 +159,9 @@ puts '5 two bhk Sell property posted'
 	availability: avail.sample,
 	price: "#{(property+1) * 3400}",
 	parking: "#{(property+1)}",
-	description: "Great view on apartment"
+	description: "Great view on apartment",
+	status: "Approved",
+	feature: feature_list.sample
     )
 end
 puts '5 three bhk Rent property posted'

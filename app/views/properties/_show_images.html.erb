@@ -8,8 +8,10 @@
 			</div>
 			<% if @property.images.second.present? %>
 				<div class="col-md-4 d-none d-md-block ">
-					<div class="property-img " data-toggle="modal" data-target=".bd-example-modal-lg">
-					   <%= image_tag @property.images.second, class: "img-fluid"%>
+					<div data-toggle="modal" data-target=".bd-example-modal-lg">
+					   <div class="property-img">
+					   	<%= image_tag @property.images.second, class: "img-fluid"%>
+						</div>
 					</div>
 					<div class="property-img property-count" data-toggle="modal" data-target=".bd-example-modal-lg">
 						<span> + <%= @property.images.count %> </span>
