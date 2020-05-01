@@ -1,5 +1,6 @@
-
-<%= form_tag(properties_path, method: :get, class:"form-inline mt-2 mt-md-0") do %>
-  <%= search_field_tag :city, params[:city] , placeholder: "Type a society or city..", class: "form-control mr-sm-2" %>
-  <%= submit_tag 'Search', class: "btn btn-primary my-2 my-sm-0", name: nil %>
-<% end %>
+<div class="mr-3">
+	<%= form_tag(properties_path, method: :get, class:"form-inline my-3 my-lg-0") do %>
+	  <%= search_field_tag :city, params[:city] , placeholder: "Search..", class: "form-control mr-sm-2 form-sm" %>
+	  <%= submit_tag 'Search', class: "btn btn-outline-success btn-sm my-2 my-sm-0", name: nil %>
+	<% end %>
+</div>

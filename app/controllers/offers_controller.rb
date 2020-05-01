@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
   after_action :verify_authorized, except: [:new, :create]
   before_action :set_offer, only: [:open, :closed, :dead]
+  before_action :offer_params, only: [:create]
   def new
   end
   def index
@@ -49,5 +50,9 @@ class OffersController < ApplicationController
   private
     def set_offer
       @offer = Offer.find(params[:id])
+    end
+
+    def offer_params
+      params.require(:offer).permit(:user_id,:phone,:property_id, :full_name, :email)
     end
 end

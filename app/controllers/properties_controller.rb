@@ -31,6 +31,7 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    @properties = Property.listed.stared.page(params[:page]).per(4)
     @offer = Offer.new
     @offers = @property.offers.published_by_created.page(params[:page]).per(5)
     $propid = @property.id

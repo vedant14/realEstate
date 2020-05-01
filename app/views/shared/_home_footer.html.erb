@@ -1,31 +1,64 @@
-<footer>
-  <div class="alternate-1">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-            <p> <%= copyright_generator %>  </p>
-        </div>  
-      </div>
-      <div class="row">
-        <div class="col-md-3">
-          <h5>The Company</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">About Us</a></li>
-            <li><a class="text-muted" href="#">Contact me on +91 9172280561</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3">
-          <h5>Social Media</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Resource</a></li>
-            <li><a class="text-muted" href="#">Resource name</a></li>
-          </ul>
-        </div>
-        <div class="col-md-6">
-          <h5>Find us on:</h5>
+<div class="bg-light">
+  <footer class="border-top">
+    <div class="container">
+      <div class="border-bottom">
+        <div class="row justify-content-lg-between space-2 space-top-md-3">
 
+          <div class="col-6 col-sm-4 col-lg-2 mb-7 mb-lg-0">
+            <h4 class="h6">Company</h4>
+
+            <!-- List Group -->
+            <ul class="list-group list-group-flush list-group-borderless mb-0">
+              <li><a class="list-group-item list-group-item-action" href="../pages/about-agency.html">About</a></li>
+              <li><a class="list-group-item list-group-item-action" href="../pages/services-agency.html">Services</a></li>
+              <li><a class="list-group-item list-group-item-action" href="../pages/careers.html">Careers</a></li>
+              <li><a class="list-group-item list-group-item-action" href="../blog/grid-right-sidebar.html">Blog</a></li>
+            </ul>
+            <!-- End List Group -->
+          </div>
+
+          <div class="col-sm-4 col-lg-2 mb-7 mb-lg-0">
+            <h4 class="h6">Resources</h4>
+
+            <!-- List Group -->
+            <ul class="list-group list-group-flush list-group-borderless mb-0">
+              <li><a class="list-group-item list-group-item-action" href="../pages/contacts-agency.html">Contacts</a></li>
+              <li><a class="list-group-item list-group-item-action" href="../pages/faq.html">Help</a></li>
+              <li><a class="list-group-item list-group-item-action" href="../pages/terms.html">Terms</a></li>
+              <li><a class="list-group-item list-group-item-action" href="../pages/privacy.html">Privacy</a></li>
+            </ul>
+            <!-- End List Group -->
+          </div>
+
+          <div class="col-md-7 col-lg-5">
+            <div class="mb-4">
+              <h4 class="h6">Get latest news in your box!</h4>
+              <p class="font-size-1">Get special offers and deals. Never spam.</p>
+            </div>
+
+            <!-- Subscribe Form -->
+            <form class="js-validate js-form-message">
+              <label class="sr-only" for="subscribeSrEmail">Your email address</label>
+              <div class="input-group">
+                <input type="email" class="form-control" name="email" id="subscribeSrEmail" placeholder="Your email address" aria-label="Your email address" aria-describedby="subscribeButton" required
+                       data-msg="Please enter a valid email address."
+                       data-error-class="u-has-error"
+                       data-success-class="u-has-success">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit" id="subscribeButton">Subscribe</button>
+                </div>
+              </div>
+            </form>
+            <!-- End Subscribe Form -->
+          </div>
         </div>
+      </div>
+
+      <div class="text-center py-7">
+        <!-- Copyright -->
+            <p> <%= copyright_generator %>  </p>
+        <!-- End Copyright -->
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
+</div>

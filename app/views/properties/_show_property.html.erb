@@ -1,121 +1,261 @@
-<div class="container-fluid">
-	<br>
-	<div class="row">
-		<h1><% if user_or_admin(@property) %> Unit <%= @property.unit_no %> - <% end %>  <%= @property.society_name %>, <%= @property.city %> </h1> 
-	</div>
-	<div class="row">
-		<h5>  <i class="fa fa-map-marker"> </i></td> <td> <%= @property.address %>,  <%= @property.pincode %> </h5> 
-	</div>
-	<div class="row">
-		<em> <h2> <%= badge_helper (@property.service) %> <%= number_to_currency(@property.price, unit: "₹", precision: 0) %> </em> </h2>
-	</div>
-	<hr>
-	<div class="row">
-		<h3>About the property <i class="fa fa-star"> </i> </h3>
-	</div>
-	<div class= "table-card" >
-		<table class="table table-borderless table-sm ">
-			<tbody>
-				<div class="row">
-					<span class="h6">
-						<%= @property.description %>
-					</span>
-				</div>
-			    <tr class="h5">
-		      		<td > <i class="fa fa-home"> </i> </td> 
-		      		<td> <%= @property.property_type %></td>
-			    </tr>
-				<tr>
-					<td></td>
-		      		<td> 
-		      			<div class="row">
-				      		<div class="col-md-4">
-					      		<span>
-					      			<%= @property.bedroom %> Bedroom
-					      		</span>
-				    		</div>
-				    		<div class="col-md-4">
-					      		<span>
-					      			<% if @property.bathroom? %>
-					      			<%= @property.bathroom %> Bath
-					      			<% end %>
-					      		</span>
-				    		</div>
-				    		<div class="col-md-4">
-					      		<span>
-					      			<% if @property.balcony? %>
-						      			<%= @property.balcony %> Balconies
-						      		<% end %>
-					      		</span> 
-				    		</div>
-			    		</div>
-		      		</td>
-			    </tr> 
+<div class="row justify-content-lg-between mt-7">
+<div class="col-lg-8">
+  <h1 class="h3 font-weight-medium"><% if user_or_admin(@property) %> Unit <%= @property.unit_no %> - <% end %>  <%= @property.society_name %>, <%= @property.address %>,  <%= @property.pincode %> , <%= @property.city %> </h1> 
+</div>
+<div class="col-lg-4 align-self-lg-end text-lg-right">
+  <span class="h3 text-primary font-weight-medium">
+  <%= badge_helper (@property.service) %> <%= number_to_currency(@property.price, unit: "₹", precision: 0) %> 
+  </span>
+</div>
+</div>
+<div class="row space-top-2">
+<div class="col-lg-8 mb-9 mb-lg-0">
+  <div class="tab-content">
+      <div class="mb-3">
+        <h2 class="h5">Property Details</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="list-unstyled font-size-1 mb-0">
+            <li class="d-sm-flex justify-content-sm-between py-1">
+              <span class="font-weight-medium">Property Type:</span>
+              <span class="text-secondary"> 
+                <% if @property.property_type? %>
+                  <%= @property.property_type %> 
+                <% else %>
+                -
+                <% end %>
+              </span>
+            </li>
+            <li class="d-sm-flex justify-content-sm-between py-1">
+              <span class="font-weight-medium">Bedrooms:</span>
+              <span class="text-secondary"> 
+                <% if @property.bedroom? %>
+                  <%= @property.bedroom %> 
+                <% else %>
+                -
+                <% end %>
+              </span>
+            </li>
+            <li class="d-sm-flex justify-content-sm-between py-1">
+              <span class="font-weight-medium">Bathrooms:</span>
+              <span class="text-secondary"> 
+                <% if @property.bathroom? %>
+                  <%= @property.bathroom %> 
+                <% else %>
+                -
+                <% end %>
+              </span>
+            </li>                   
+            <li class="d-sm-flex justify-content-sm-between py-1">
+              <span class="font-weight-medium">Balconies:</span>
+              <span class="text-secondary"> 
+                <% if @property.balcony? %>
+                  <%= @property.balcony %> 
+                <% else %>
+                -
+                <% end %>
+              </span>
+            </li>
+           <li class="d-sm-flex justify-content-sm-between py-1">
+                <span class="font-weight-medium">Property Furnishing:</span>
+                <span class="text-secondary"> 
+                  <% if @property.furnishing? %>
+                    <%= @property.furnishing %> 
+                  <% else %>
+                  -
+                  <% end %>
+                </span>
+              </li>
+          </ul>
+          <!-- End Fact List -->
+        </div>
 
-			    <tr class="h5">
-		      		<td><i class="fa fa-unsorted" > </i> </td> 
-		      		<td> Property Details </td>
-			    </tr>
-				<tr>
-					<td></td>
-		      		<td> 
-		      			<div class="row">
-				      		<div class="col-md-4">
-					      		<span>
-					      			<%= @property.furnishing %>
-					      		</span>
-				    		</div>
-				    		<div class="col-md-4">
-					      		<span>
-  					      			<% if @property.on_floor? %>
-						      			On Floor <%= @property.on_floor %> 
-						      		<% end %>
-					      		</span>
-					      	</div>
-				    		<div class="col-md-4">
-					      		<span>
-  					      			<% if @property.total_floors? %>
-						      			Total Floors <%= @property.total_floors %> 
-						      		<% end %>
-					      		</span>
-				    		</div>
-			    		</div>
-		      		</td>
-			    </tr> 
+        <div class="col-md-6">
+          <ul class="list-unstyled font-size-1 mb-0">
+            <li class="d-sm-flex justify-content-sm-between py-1">
+              <span class="font-weight-medium">Carpet Area:</span>
+              <span class="text-secondary"> 
+                <% if @property.carpet_area? %>
+                  <%= @property.carpet_area %> 
+                <% else %>
+                -
+                <% end %>
+              </span>
+            </li>
+            <li class="d-sm-flex justify-content-sm-between py-1">
+              <span class="font-weight-medium">Super built-up area:</span>
+              <span class="text-secondary"> 
+                <% if @property.super_built_up_area? %>
+                  <%= @property.super_built_up_area %> 
+                <% else %>
+                -
+                <% end %>
+              </span>
+            </li>                   
+            <li class="d-sm-flex justify-content-sm-between py-1">
+              <span class="font-weight-medium">On Floor:</span>
+              <span class="text-secondary"> 
+                <% if @property.on_floor? %>
+                  <%= @property.on_floor %> 
+                <% else %>
+                -
+                <% end %>
+              </span>
+            </li>
 
-			    <tr class="h5">
-		      		<td> <i class="fa fa-object-ungroup"> </i> </td> 
-		      		<td> Area </td>
-			    </tr>
-				<tr>
-					<td></td>
-		      		<td> 
-		      			<div class="row">
-				      		<div class="col-md-6">
-					      		<span>
-					      			Carpet area. <%= @property.carpet_area.to_i %> sq. ft.
-					      		</span>
-				    		</div>
-				    		<div class="col-md-6">
-					      		<span>
-					      			<% if @property.super_built_up_area? %>
-						      			Built-up area. <%= @property.super_built_up_area.to_i %> sq. ft.
-					      			<% end %>
-					      		</span>
-				    		</div>
-			    		</div>
-			    		<div class="row">
-			    			<div class="col-md-8">
-				    			<span>
-						      		<% if @property.parking? %>
-							     		<%= @property.parking %> available.
-						      		<% end %>
-						      	</span>
-			    			</div>
-			    		</div>
-		      		</td>
-			    </tr> 
-			</tbody>
-		</table>
-	</div>
+            <li class="d-sm-flex justify-content-sm-between py-1">
+              <span class="font-weight-medium">Total Floor:</span>
+              <span class="text-secondary"> 
+                <% if @property.total_floors? %>
+                  <%= @property.total_floors %> 
+                <% else %>
+                -
+                <% end %>
+              </span>
+            </li>
+
+            <li class="d-sm-flex justify-content-sm-between py-1">
+              <span class="font-weight-medium">Parking:</span>
+              <span class="text-secondary"> 
+                <% if @property.parking? %>
+                  <%= @property.parking %> 
+                <% else %>
+                -
+                <% end %>
+              </span>
+            </li>
+          </ul>
+          <!-- End Fact List -->
+        </div>
+      </div>
+      <!-- End Key Facts -->
+
+      <!-- View Info -->
+      <div class="border-top border-bottom py-4 my-6">
+        <div class="row justify-content-sm-between">
+          <div class="col-sm-6 text-sm-right u-ver-divider u-ver-divider--none-sm mb-2 mb-sm-0">
+            <div class="pr-md-4">
+              <span class="text-secondary">Posted on:</span>
+              <strong class="text-dark"> <%= @property.created_at %> </strong>
+            </div>
+          </div>
+          <div class="col-sm-6 ">
+            <div class="pl-md-4">
+              <span class="text-secondary">Total offers:</span>
+              <strong class="text-dark"> <%= @offers.count %> 
+              </strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End View Info -->
+
+      <!-- Title -->
+      <div class="mb-3">
+        <h3 class="h5">Property description</h3>
+      </div>
+      <!-- End Title -->
+      <p>
+        <%= @property.description %>
+      </p>
+
+      <hr class="my-6">
+
+      <!-- Title -->
+      <div class="mb-3">
+        <h3 class="h5">Accessibility</h3>
+      </div>
+      <!-- End Title -->
+
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Accessibility List -->
+          <ul class="list-unstyled font-size-1 mb-0">
+            <li class="d-flex align-items-center py-1">
+              <span class="font-weight-medium">Location</span>
+              <div class="ml-auto">
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+              </div>
+            </li>
+
+            <li class="d-flex align-items-center py-1">
+              <span class="font-weight-medium">Area safety</span>
+              <div class="ml-auto">
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+              </div>
+            </li>
+
+            <li class="d-flex align-items-center py-1">
+              <span class="font-weight-medium">Close to schools</span>
+              <div class="ml-auto">
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+              </div>
+            </li>
+          </ul>
+          <!-- End Accessibility List -->
+        </div>
+
+        <div class="col-md-6">
+          <!-- Accessibility List -->
+          <ul class="list-unstyled font-size-1 mb-0">
+            <li class="d-flex align-items-center py-1">
+              <span class="font-weight-medium">Low cost</span>
+              <div class="ml-auto">
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+              </div>
+            </li>
+
+            <li class="d-flex align-items-center py-1">
+              <span class="font-weight-medium">Built around</span>
+              <div class="ml-auto">
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="far fa-star text-warning ml-1"></span>
+              </div>
+            </li>
+
+            <li class="d-flex align-items-center py-1">
+              <span class="font-weight-medium">Value</span>
+              <div class="ml-auto">
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="fas fa-star text-warning ml-1"></span>
+                <span class="far fa-star text-warning ml-1"></span>
+                <span class="far fa-star text-warning ml-1"></span>
+              </div>
+            </li>
+          </ul>
+          <!-- End Accessibility List -->
+        </div>
+      </div>
+
+
+  </div>
+  <!-- End Agents List -->
+</div>
+<div class="col-lg-4">
+  <div id="stickyBlockStartPoint" class="pl-lg-4">
+    <!-- Contact Form -->
+    <%= render "new_offer" %>
+    <!-- End Contact Form -->
+  </div>
 </div>

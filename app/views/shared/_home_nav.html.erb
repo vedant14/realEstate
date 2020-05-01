@@ -1,32 +1,33 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <%=  link_to "Homzhub", root_path, class: "navbar-brand" %>
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+  <%=  link_to "Real Estate", root_path, class: "navbar-brand" %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-brand"> Search | Menu </span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <%= link_to "View users", admin_users_path, class: "nav-link" if policy(Offer).index? %>
-        </li>
-        <li class="nav-item ">
-          <%= link_to "View all Offers", offers_path, class: "nav-link" if policy(Offer).index? %>
-        </li>
-        <li class="nav-item ">
-          <%= link_to "View all properites", view_properties_path, class: "nav-link" if policy(Offer).index? %>
-        </li>
-        <li>
-          <% if current_user %>
-            <%= link_to "Upload a property", new_property_path, class: "btn btn-warning" %>
-          <% else %>
-          <%=  link_to "Upload a property", new_user_registration_path, class: "btn btn-warning", notice: "You need to sign up first"%>
-          <% end %>
-        </li>
-        <hr class="d-md-none">
-      </ul>
-      <div class="navig-pad">
-          <%= render "shared/search_home" %>  
-      </div>
-          <%= render "shared/usercontrol" %>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+   <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "View users", admin_users_path, class: "nav-link" if policy(Offer).index? %>
+      </li>
+      <li class="nav-item ">
+        <%= link_to "View all Offers", offers_path, class: "nav-link" if policy(Offer).index? %>
+      </li>
+      <li class="nav-item ">
+        <%= link_to "View all properites", view_properties_path, class: "nav-link" if policy(Offer).index? %>
+      </li>
+    </ul>
+    <hr class="d-md-none">
+    <ul class="navbar-nav mr-3">
+      <li>
+        <% if current_user %>
+          <%= link_to "Upload a property", new_property_path, class: "btn btn-warning btn-sm btn-block" %>
+        <% else %>
+        <%=  link_to "Upload a property", new_user_registration_path, class: "btn btn-warning btn-sm btn-block", notice: "You need to sign up first"%>
+        <% end %>
+      </li>
+      <hr class="d-md-none">
+    </ul>  
+    <%= render "shared/usercontrol" %>
   </div>
 </nav>

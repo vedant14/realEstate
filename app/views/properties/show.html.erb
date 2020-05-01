@@ -1,18 +1,12 @@
-<div class="container">
-	<div class="row">
-		<%= render "propertycontrols" %>
-	</div>
+<div class="container">	
 	<%= render "show_images" %>
-	<div class="row">
-		<div class="col-md-8 vl">
-			<%= render "show_property" %>
-		</div>
-		<div class="col-md-4 side-cont">
-			<% if user_or_admin(@property) %>
-				<%= render "offers" %>
-			<% else %>
-				<%= render "new_offer" %>
-			<% end %>
-		</div>
-	</div>
+</div>
+<div class="container space-bottom-2">
+  <%= render "show_property" %>
+</div>
+<div class="border-top pt-8 mt-8">
+  <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-9">
+    <h2 class="font-weight-medium">Sort through the featured property</h2>
+  </div>
+  <%= render "featureshow" %>
 </div>

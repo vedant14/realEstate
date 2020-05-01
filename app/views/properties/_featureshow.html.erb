@@ -1,0 +1,24 @@
+<div class="row">
+  <% @properties.each do |property| %>
+    <div class="card border-0 shadow-sm col-md-4 mr-3">
+      <div class="position-relative py-1">
+        <% if property.images.attached? %> 
+            <%= link_to image_tag(property.images.first, width: '100%') , property, class: "card-img-top"  %>
+        <% else %>
+          <%= link_to image_tag("img/item/1.jpg", width: '100%'),property, class: "card-img-top" %> 
+        <% end %> 
+      </div>
+
+      <div class="card-body p-5">
+        <h4 class="h6">
+         <% if user_or_admin property %> Unit <%= property.unit_no %> - <% end %> <%= property.bedroom %> Bedroom <%= property.property_type %> in  <%= property.society_name %>,  <%= property.city %>
+        </h4>
+        <%= badge_helper (property.service) %> <%= number_to_currency(property.price,  unit: "₹", precision: 0) %>
+      </div>
+      <div class="btn-group">
+      <%= link_to 'Edit', edit_property_path(property) ,  class: "btn btn-sm btn-outline-secondary" if policy(property).edit? %>
+      <%= link_to 'Delete', property, method: :delete, data: { confirm: 'Are you sure?' } ,  class: "btn btn-sm btn-outline-secondary" if policy(property).destroy? %>
+      </div>
+    </div>
+  <% end %>
+</div>

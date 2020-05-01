@@ -1,40 +1,53 @@
-<div class="container">
-	<div class="row">
-		<div class="col">
-			<span class="side-head h5"> Want to schedule a visit? </span>
-			<%= simple_form_for @offer do |form| %>
-			    <%= form.error_notification %>
-				<% flash.each do |key, value| %>
-				    <% if value=="Great we will contact you shortly!" %>
-						<div class="card">
-							<div class="sidebar-module sidebar-module-inset">
-								<div class="alert alert-<%= key %>"><%= value %></div>
-							</div>
-						</div>
-					<% else %>
-							<div class="sidebar-module-alert sidebar-module-inset-alert">
-								<div class="alert alert-<%= key %>"><%= value %></div>
-							</div>			
-					<% end %>
-				<% end %>
-				<% unless flash[:notice]=="Great we will contact you shortly!" %>
-					<div class="container">
-						<div class= "form-group row">
-							<%= form.input :full_name, input_html: { value: "#{$full_name}" },label: "Your Name" %>
-						</div>
-						<div class= "form-group row">
-							<%= form.input :phone, input_html: { value: "#{$phone}" },label: "Your Phone Number", hint: "Only 10 digits allowed" %>
-						</div>
-						<div class= "form-group row">
-							<%= form.input :email, input_html: { value: "#{$email}" },label: "Your Email Address" %>
-						</div>
-						<div class="form-group row">
-							<%= form.submit 'I am Interested', class: "btn btn-info btn-block" %>
-						</div>
-					</div>
-		     	<%end %>
-			<% end %>
-		</div>
-	</div>
+<div class="sticky card shadow-sm p-4">
+  <!-- Header -->
+  <div class="align-items-center mb-4">
+    <div>
+      <h4 class="h6 mb-0">Fill the form to schedule a call!</h4>
+    </div>
+  </div>
+  <!-- End Header -->
+
+  <!-- Form -->
+
+      <%= simple_form_for @offer do |form| %>
+          <%= form.error_notification %>
+        <% flash.each do |key, value| %>
+            <% if value=="Great we will contact you shortly!" %>
+            <div class="card">
+              <div class="sidebar-module sidebar-module-inset">
+                <div class="alert alert-<%= key %>"><%= value %></div>
+              </div>
+            </div>
+          <% else %>
+              <div class="sidebar-module-alert sidebar-module-inset-alert">
+                <div class="alert alert-<%= key %>"><%= value %></div>
+              </div>      
+          <% end %>
+        <% end %>
+        <% unless flash[:notice]=="Great we will contact you shortly!" %>
+          <div class="container">
+            <div class="mb-2">
+              <div class= "form-group form-group-sm">
+                <%= form.input :full_name, input_html: { value: "#{$full_name}" },label: "Your Name" %>
+              </div>
+            </div>
+            <div class="mb-2">
+              <div class= "form-group form-group-sm">
+                <%= form.input :phone, input_html: { value: "#{$phone}" },label: "Your Phone Number", hint: "Only 10 digits allowed" %>
+              </div>
+            </div>
+            <div class="mb-2">
+              <div class= "form-group form-group-sm">
+                <%= form.input :email, input_html: { value: "#{$email}" },label: "Your Email Address" %>
+              </div>
+            </div>
+            <div class="mb-2">
+              <div class="form-group form-group-sm">
+                <%= form.submit 'I am Interested', class: "btn btn-block btn-sm btn-primary btn-wide transition-3d-hover" %>
+              </div>
+            </div>
+          </div>
+          <%end %>
+      <% end %>
 </div>
 

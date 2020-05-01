@@ -1,33 +1,33 @@
   <%- if controller_name != 'sessions' %>
     <div class="form-group">
         <h4 class="form-signin-heading">Already have an account?</h4>
-        <%= link_to "Log in", new_session_path(resource_name), class:"btn btn-secondary" %><br />
+        <%= link_to "Log in", new_session_path(resource_name), class:"btn  btn-sm btn-secondary" %><br />
     </div>
   <% end %>
   
   <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
     <div class="form-group">
       <h4 class="form-signin-heading">Want to signup on Homzhub?</h4>
-      <%= link_to "Sign up", new_registration_path(resource_name), class:"btn btn-secondary" %><br />
+      <%= link_to "Sign up", new_registration_path(resource_name), class:"btn btn-sm  btn-secondary" %><br />
     </div>
   <% end %>
   
   <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
     <div class="form-group">
       <h4 class="form-signin-heading">Unable to remember password?</h4>
-      <%= link_to "Get a new password?", new_password_path(resource_name), class:"btn btn-warning" %><br />
+      <%= link_to "Get a new password?", new_password_path(resource_name), class:"btn  btn-sm btn-warning" %><br />
     </div>
   <% end %>
   
   <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
     <div class="form-group">
-      <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class:"btn btn-warning" %><br />
+      <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class:"btn  btn-sm btn-warning" %><br />
     </div>
   <% end %>
   
   <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
     <div class="form-group">
-      <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class:"btn btn-warning" %><br />
+      <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class:"btn  btn-sm btn-warning" %><br />
     </div>
   <% end %>
   

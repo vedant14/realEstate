@@ -1,50 +1,79 @@
-<div class="container">
-  <div class="card bgcard">
-    <div class="card-body">
-      <h2>Sign up</h2>
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-               <%= f.label :full_name, 'Your Name' %>
-               <%= f.text_field :full_name, class: 'form-control', autofocus: true %>
+  <main id="content" role="main">
+    <div class="d-flex align-items-center position-relative height-lg-100vh">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-8 col-lg-7 col-xl-6 offset-md-2 offset-lg-2 offset-xl-3 space-3 space-lg-0">
+            <div class="mb-7">
+              <h1 class="h3 text-primary font-weight-normal mb-0">Welcome to <span class="font-weight-semi-bold">Real Estate</span></h1>
+                <p>Fill out the form to get started.</p>
             </div>
-            <div class="form-group">
-               <%= f.label :phone, 'Phone Number' %><i>(Do not enter country codes)</i>
-               <%= f.text_field :phone, class: 'form-control'%>
-            </div>
-            <div class="form-group">
-              <%= f.label :email %>
-              <%= f.email_field :email, autocomplete: "email", class:"form-control" %>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <%= f.label :password %>
-              <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %><br />
-              <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
-            </div>
-            
-            <div class="form-group">
-              <%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
-            </div>
-          </div>  
-          <div class="col-md-9">
-                <div class = "auth-link d-none d-md-block">
-                  <%= render "devise/shared/links" %>
+            <div class=" mt-5">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+              <div class="form-group">
+                <%= f.label :full_name, 'Your Name' %>
+                <%= f.text_field :full_name, class: 'form-control', autofocus: true %>
+              </div>
+              <div class="form-group">
+                <%= f.label :phone, 'Phone Number' %><i>(Do not enter country codes)</i>
+                <%= f.text_field :phone, class: 'form-control'%>
+              </div>
+              <div class="form-group">
+                <%= f.label :email %>
+                <%= f.email_field :email, autocomplete: "email", class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+              </div>  
+              <!-- End Form Group -->
+
+              <!-- Form Group -->
+  
+              <!-- End Form Group -->
+
+              <!-- Checkbox -->
+              <div class="js-form-message mb-5">
+                <div class="custom-control custom-checkbox d-flex align-items-center text-muted">
+                  <input type="checkbox" class="custom-control-input" id="termsCheckbox" name="termsCheckbox" required
+                         data-msg="Please accept our Terms and Conditions."
+                         data-error-class="u-has-error"
+                         data-success-class="u-has-success">
+                  <label class="custom-control-label" for="termsCheckbox">
+                    <small>
+                      I agree to the
+                      <a class="link-muted" href="../pages/terms.html">Terms and Conditions</a>
+                    </small>
+                  </label>
                 </div>
+              </div>
+              <!-- End Checkbox -->
+
+              <!-- Button -->
+              <div class="row align-items-center mb-5">
+                <div class="col-5 col-sm-6">
+                  <span class="small text-muted">Already have an account?</span>
+                  <%= link_to "Login", new_session_path(resource_name), class: "small" %>
+                </div>
+
+                <div class="col-7 col-sm-6 text-right">
+                  <%= f.submit "Sign up" , class:"btn btn-primary transition-3d-hover"%>
+
+                </div>
+              </div>
+              <!-- End Button -->
+            <% end %>
+            <!-- End Form -->
           </div>
-          <div class="col-md-3">
-            <div class="form-group">
-              <%= f.submit "Sign up" , class:"btn btn-primary btn-block"%>
-            </div>
-          </div>
-        <% end %>
         </div>
+      </div>
     </div>
-  </div>
-</div>
+    <!-- End Form -->
+  </main>

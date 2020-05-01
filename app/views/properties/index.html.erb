@@ -1,25 +1,38 @@
-<div class="album py-5 bg-light">
-  <div class="container-fluid">
-    <div class="card">
-      <div class="container">
-        <div class="card-body">
-          <%= render "shared/searchbar" %>
+  <main id="content" role="main">
+    <!-- Search Section -->
+    <div class="bg-light">
+      <div class="container space-1">
+        <div class="row mx-gutters-2">
+          <div class="col-lg">
+           <%= render "shared/searchbar" %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="album-index">  
-    <div class="container-fluid">
-      <div class="row">
-      	<% if @properties.count == 0 %>
-      		<h1> No Properties </h1>
-      	<% else %>  
-      	    <%= render @properties %>
-      	<% end %>
+    <!-- End Search Section -->
+
+    <!-- Filters Section -->
+    <div class="container space-1">
+      <!-- Title -->
+      <div class="mb-4">
+        <h1 class="h4 font-weight-medium">Property for sale in London</h1>
       </div>
+
+
+    <div class="container space-top-1 space-bottom-2">
+      <div class="row">
+          <div class="card-deck d-block d-md-flex">
+            <% if @properties.count == 0 %>
+              <h1> No Properties </h1>
+            <% else %>  
+                <%= render @properties %>
+            <% end %>
+        </div>
+    </div>
       <div class="row center">
         <%= paginate @properties %>
       </div>
-    </div>
-  </div>
-</div>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+  

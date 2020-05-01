@@ -1,39 +1,45 @@
-<div class="container">
-  <div class="login">
-    <div class="card bgcard">
-      <div class="card-body">
-        <h2>Log in</h2>
-          <div class="row">
-            <div class="col-md-7">        
-                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <div class="form-group">
-                  <%= f.label :email %><br />
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
-                </div>
-                
-                <div class="form-group">
-                  <%= f.label :password %><br />
-                  <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
-                </div>
-                
-                <% if devise_mapping.rememberable? %>
+  <main id="content" role="main">
+    <div class="d-flex align-items-center position-relative height-lg-100vh">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-8 col-lg-7 col-xl-6 offset-md-2 offset-lg-2 offset-xl-3 space-3 space-lg-0">
+            <div class="mb-7">
+              <h1 class="h3 text-primary font-weight-normal mb-0">Login to <span class="font-weight-semi-bold">Real Estate</span></h1>
+            </div>
+            <div class=" mt-5">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+              <div class="form-group">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
+              </div>
+              <% if devise_mapping.rememberable? %>
                   <div class="form-group">
                     <%= f.check_box :remember_me %>
                     <%= f.label :remember_me %>
                   </div>
-                <% end %>
-        
-                <div class="form-group">
-                  <%= f.submit "Log in", class:"btn btn-primary"    %>
+              <% end %>
+              <div class="row align-items-center mb-5">
+                <div class="col-5 col-sm-6">
+                  <span class="small text-muted">New here?</span>
+                  <%= link_to "Register here.", new_registration_path(resource_name), class: "small" %>
                 </div>
-                <% end %>
-            </div>
-            <div class="col-md-5">
-                <div class = "auth-link">
-                  <%= render "devise/shared/links" %>
+
+                <div class="col-7 col-sm-6 text-right">
+                  <%= f.submit "Login" , class:"btn btn-primary transition-3d-hover"%>
+
                 </div>
-            </div>    
+              </div>
+              <!-- End Button -->
+            <% end %>
+            <!-- End Form -->
+          </div>
+        </div>
       </div>
     </div>
-  </div>
- </div>
+    <!-- End Form -->
+  </main>
