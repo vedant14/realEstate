@@ -15,9 +15,9 @@ class PropertiesController < ApplicationController
 
   def create
     @property = Property.new(property_params)
-    if @property.user_id?
-      @property.user_id == current_user.id
-    end
+    if current_user.type != "AdminUser"
+      @property.user_id = current_user.id
+    end  
     respond_to do |format|
       if @property.save
         format.html { redirect_to @property, notice: 'Property was successfully created.' }

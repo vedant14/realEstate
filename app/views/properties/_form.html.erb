@@ -22,11 +22,19 @@
 <div class="bg-light">
   <div class="container space-2">
     <%= simple_form_for @property do |form| %>
-      <%= form.error_notification %>          
+      <%= form.error_notification %>  
+      <% if current_user.type == "AdminUser" %>
+      <h4 class="form-group"> Choose the user </h4>    
+      <div class= "form-group row">
+        <div class="col-md-2">
+          <%= form.association :user, label_method: :full_name, value_method: :id, include_blank: false , selected: @property.user_id ||current_user.id  %>
+        </div>
+       </div>
+      <% end %>        
       <div class="row">
         <div class="mb-1">
           <h3 class="h5 mb-1">Property Location</h3>
-          <p>Add elsewhere links to your profile.</p>
+          <p>Help people locate your property.</p>
         </div>
       </div>
       <div class="row">
@@ -42,11 +50,14 @@
         <div class="col-sm-6 mb-6">
           <%= form.input :city, label: "Enter the city.", placeholder: "Nagpur, Mumbai...." %>
         </div>
+        <div class="col-sm-4 mb-4">
+          <%= form.input :pincode, label: "Pincode", hint: "Should be six digit" %>
+        </div>
       </div>
       <div class="row">
         <div class="mb-1">
           <h3 class="h5 mb-1">Property Details</h3>
-            <p>Add elsewhere links to your profile.</p>
+            <p>Add a few details.</p>
         </div>
       </div>
       <div class="row">
@@ -85,7 +96,7 @@
       <div class="row">
         <div class="mb-1">
           <h3 class="h5 mb-1">Services</h3>
-            <p>Add elsewhere links to your profile.</p>
+            <p>What service are you looking for?.</p>
         </div>
       </div>
       <div class="row">
@@ -109,7 +120,7 @@
       <div class="row">
         <div class="mb-1">
           <h3 class="h5 mb-1">Add Images</h3>
-            <p>Add elsewhere links to your profile.</p>
+            <p>Add a few images.</p>
         </div>
         <div class="col-sm-12 mb-12">
           <%= form.file_field :images, multiple: true, direct_upload: true, label:"Upload the property images", hint: "Properties with images attract more audience", class: " btn btn-outline-dark" %>

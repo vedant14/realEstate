@@ -14,7 +14,7 @@ class PropertyPolicy < ApplicationPolicy
       true
   	end
     def show?
-      return true if record.status == "Approved" || admin?
+      return true if record.status == "Approved" || user_or_admin
     end
 
   	def create?
