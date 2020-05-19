@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :account do
+  factory :company do
     subdomain { "MyString" }
     user_id { 1 }
   end

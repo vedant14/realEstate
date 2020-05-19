@@ -1,0 +1,36 @@
+<div class="bg-primary">
+  <div class="container space-top-1 pb-3">
+    <div class="row">
+      <div class="col-lg-7 order-lg-1">
+        <div class="d-block d-sm-flex align-items-sm-center">
+          <div class="media-body">
+            <h1 class="h3 text-white font-weight-medium mb-1">Hi, <%= current_user.first_name %> !</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-light">
+  <div class="container space-2">
+    <%= simple_form_for @company do |form| %>
+      <%= form.error_notification %>  
+      <div class="row">
+        <div class="col-sm-4 mb-4">
+          <%= form.input :name, label: "Company Full Name", hint: "This will be shown in the hero" %>
+        </div>
+        <% if @company.new_record? %>
+          <div class="col-sm-8 mb-8">
+            <%= form.input :subdomain, label: "Subdomain", placeholder: "this is the url - cannot have special symbols" %>
+          </div>
+        <% end %>
+      </div>
+      <hr>
+      <div class="row">
+        <%= form.submit 'Create a subdomain', class: "btn btn-sm btn-primary transition-3d-hover mr-1"%>
+        <%= link_to 'Back', companies_url, class: "btn btn-sm btn-soft-secondary transition-3d-hover" %>
+      </div>
+    <% end %>    
+  </div>
+</div>

@@ -35,7 +35,7 @@ class ApplicationPolicy
   end
 
   def admin_types
-    ['AdminUser']
+    ['AdminUser', 'Superadmin']
   end
 
   class Scope

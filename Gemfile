@@ -24,7 +24,8 @@ gem "administrate", github: "thoughtbot/administrate"
 gem "font-awesome-rails"
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'devcamp_view_tool', '~> 0.1.0'
-gem 'rails_12factor', group: :production
+gem 'apartment', '~> 2.2', '>= 2.2.1'
+gem 'airbrake', '~> 10.0', '>= 10.0.3'
 
 
 group :development, :test do
