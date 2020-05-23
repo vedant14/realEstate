@@ -26,12 +26,6 @@ module ApplicationHelper
     badge_type.html_safe
   end
 
-  class SubdomainConstraint
-    def self.matches?(request)
-      subdomains = %w{ www admin }
-      request.subdomain.present? && !subdomains.include?(request.subdomain)
-    end
-  end
  
   def copyright_generator
     DevcampViewTool::Renderer.copyright 'Homzhub', 'All rights reserved'

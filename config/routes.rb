@@ -1,20 +1,16 @@
 class SubdomainConstraint
   def self.matches?(request)
-    subdomains = %w{ www admin ww2 }
+    subdomains = %w{ www admin}
     request.subdomain.present? && !subdomains.include?(request.subdomain)
   end
 end
-
 Rails.application.routes.draw do
 
   constraints SubdomainConstraint do
     namespace :admin do
         resources :users
         resources :companies
-        # resources :offers
-        # resources :properties
          resources :admin_users
-        # root to: "users#index"
       end
 
     resources :properties do 
@@ -44,9 +40,13 @@ Rails.application.routes.draw do
   	get 'contact-us', to: 'static#contact_us'
   	get 'faqs', to: 'static#faq'
   	root to: 'static#home'
+    get 'not_authorised', to: 'static#not_authorised'
   end 
 
-  	resources :companies
+  	resources :companies do
+      member do 
+        get :toggle_status
+      end
+    end
     devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
-    root :to => redirect("/login")
 end

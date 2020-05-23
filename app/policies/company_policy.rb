@@ -29,6 +29,14 @@ class CompanyPolicy < ApplicationPolicy
       admin?
     end
 
+    def destroy?
+      admin?
+    end
+
+
+    def toggle_status?
+      admin?
+    end
   	def admin?
   		if user.present?
         if user.present?

@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 
-  before_action :set_company, only: [:edit, :update]
+  before_action :set_company, only: [:edit, :update, :destroy, :toggle_status]
   after_action :verify_authorized
 
 
@@ -42,6 +42,28 @@ class CompaniesController < ApplicationController
     end
     authorize @company
   end
+
+  def destroy
+    @company.destroy
+    respond_to do |format|
+      format.html { redirect_to companies_url, notice: 'Company was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+    authorize @company
+  end
+
+  def toggle_status
+    if @company.enabled?
+        @company.disabled!
+        { notice: 'Property is now featured.'}
+        { alert: "Only six starred properties will be displayed"}
+    else
+        @company.enabled!
+        { notice: 'Property is now removed from featured'}
+    end
+    redirect_to request.referrer
+    authorize @company
+  end   
 
 
   private

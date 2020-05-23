@@ -97,6 +97,8 @@ Apartment.configure do |config|
   # config.pg_excluded_names = ["uuid_generate_v4"]
 end
 
+
+
 # Setup a custom Tenant switching middleware. The Proc should return the name of the Tenant that
 # you want to switch to.
 # Rails.application.config.middleware.use Apartment::Elevators::Generic, lambda { |request|

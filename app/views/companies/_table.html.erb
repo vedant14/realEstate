@@ -17,11 +17,13 @@
               <tr>
                 <td> <%= company.id %>  </td>
                 <td> <%=company.created_at.strftime("%d/%m/%Y")  %> </td>
-                <td> <%= company.name %> </td>  
-                <td> <%= company.subdomain %> </td>
+                <td> <%= company.name %> <%= company.status %> </td>  
+                <td> <%= company.subdomain %> | <%= company.status %>  </td>
                 <td>
-                  <div class="btn-group company-but">
-                    <%= link_to 'Edit', edit_company_path(company), class: "btn btn-light" if policy(company).edit? %> 
+                  <div class="btn-group">
+                    <%= link_to 'Edit', edit_company_path(company), class: "btn btn-light btn-sm" if policy(company).edit? %> 
+                     <%= link_to 'Delete', company, method: :delete, data: { confirm: 'Are you sure?' } ,  class: "btn btn-danger btn-sm" if policy(company).destroy? %>
+                     <%= link_to status_text_company(company), toggle_status_company_path(company), class: status_class_company(company) %> 
                   </div>
                 </td>
               </tr>
