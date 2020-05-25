@@ -26,6 +26,8 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'devcamp_view_tool', '~> 0.1.0'
 gem 'apartment', '~> 2.2', '>= 2.2.1'
 gem 'airbrake', '~> 10.0', '>= 10.0.3'
+gem 'rails_12factor', group: :production
+
 
 
 group :development, :test do
