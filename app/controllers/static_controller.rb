@@ -14,5 +14,8 @@ class StaticController < ApplicationController
   end
 
   def not_authorised
+    if @company_status != 'disabled'
+      redirect_to root_path
+    end      
   end
 end

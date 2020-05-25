@@ -16,9 +16,6 @@
       <li class="nav-item ">
         <%= link_to "View all properites", view_properties_path, class: "nav-link" if policy(Offer).index? %>
       </li>
-      <li class="nav-item ">
-        <%= link_to "View all Companies", companies_path, class: "nav-link" if policy(Company).index? %>
-      </li>
     </ul>
     <hr class="d-md-none">
     <ul class="navbar-nav mr-3">

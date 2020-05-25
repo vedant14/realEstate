@@ -28,7 +28,7 @@ module ApplicationHelper
 
  
   def copyright_generator
-    DevcampViewTool::Renderer.copyright 'Homzhub', 'All rights reserved'
+    DevcampViewTool::Renderer.copyright @company_name, 'All rights reserved'
   end
 
 
