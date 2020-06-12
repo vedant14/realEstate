@@ -2443,6 +2443,26 @@ textarea.form-control {
   box-shadow: 0 0 0 0.2rem rgba(222, 68, 55, 0.25);
 }
 
+.property-img {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  vertical-align: bottom;
+}
+
+.property-img > img {
+  width: fit-content;
+}
+
+.card-count {
+  background-color: grey;
+  height: 50%;
+  margin: auto;
+  padding: 10px;
+  max-height: 10rem;
+  font-size: 90px;
+  line-height: auto;
+  text-align: center;
+}
 .was-validated .form-check-input:invalid ~ .form-check-label, .form-check-input.is-invalid ~ .form-check-label {
   color: #de4437;
 }

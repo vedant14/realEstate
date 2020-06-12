@@ -3,6 +3,20 @@ class Property < ApplicationRecord
   belongs_to :user
   has_many :offers, dependent: :destroy
 
+  extend FriendlyId
+  friendly_id :slug_candidates, use: :slugged
+
+  # Try building a slug based on the following fields in
+  # increasing order of specificity.
+  def slug_candidates
+    [
+      [:service, :bedroom, :society_name, :address, :city],
+      [:service, :bedroom, :society_name, :address, :city, :pincode],
+      [:service, :bedroom, :society_name, :address, :city, :pincode, :price]
+    ]
+  end
+
+
   # attr_accessor :remove_image
   
   # after_save :purge_image, if: :remove_image

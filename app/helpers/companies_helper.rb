@@ -16,15 +16,4 @@ module CompaniesHelper
     end  
   end  
 
-
-
-
-  def disable
-    disable= ''
-    $diabledcompanies.each do |company|
-      disable<< "#{company.subdomain}"
-    end
-  end
-  
-
 end

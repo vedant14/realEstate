@@ -18,7 +18,7 @@ footer p {
 
 .bgcard {
   background-color: #eee;
-  margin-top: 3rem;
+  margin-top: 1rem;
   margin-bottom: 4rem;
 }
 
@@ -299,15 +299,15 @@ input[type=file][data-direct-upload-url][disabled] {
 
 .property-img > img {
   width: fit-content;
-  max-height: 20rem;
+  max-height: 10rem;
 }
 
-.property-count {
+.card-count {
+  cursor: pointer;
   background-color: grey;
-  height: auto;
+  height: 50%;
   margin: auto;
   padding: 10px;
-  color: white;
   font-size: 90px;
   line-height: auto;
   text-align: center;

@@ -4,8 +4,10 @@ class Company < ApplicationRecord
 
 
 
-	validates_presence_of :name, :subdomain
+	validates_presence_of :name
 	before_save :downcase_fields
+	validates :subdomain, presence: true, uniqueness: true, length: { maximum: 15 }
+
 
 	SUBDOMAIN_REGEX = /[A-Za-z0-9](?:[A-Za-z0-9\-]{0,61}[A-Za-z0-9])?/
 

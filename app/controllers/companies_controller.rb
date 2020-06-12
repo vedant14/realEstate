@@ -18,7 +18,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
     respond_to do |format|
       if @company.save
-        format.html { redirect_to request.referrer, notice: 'Great we will contact you shortly!' }
+        format.html { redirect_to companies_url, notice: 'Great we will contact you shortly!' }
       else
         format.html { redirect_to request.referrer, alert: 'Something is not right here. Please Check Again.' }
       end
@@ -56,7 +56,6 @@ class CompaniesController < ApplicationController
     if @company.enabled?
         @company.disabled!
         { notice: 'Property is now featured.'}
-        { alert: "Only six starred properties will be displayed"}
     else
         @company.enabled!
         { notice: 'Property is now removed from featured'}

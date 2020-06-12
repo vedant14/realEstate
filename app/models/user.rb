@@ -17,11 +17,11 @@ class User < ApplicationRecord
 
 
   def first_name
-  	self.full_name.split.first
+  	self.full_name.split.first.humanize
   end
 
   def last_name
-  	self.full_name.split.last
+  	self.full_name.split.last.humanize
   end
 
 end

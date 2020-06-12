@@ -1,4 +1,5 @@
 <div class="container">	
+	<%= render "propertycontrols" if policy(@property).edit?%>
 	<%= render "show_images" %>
 </div>
 <div class="container space-bottom-2">

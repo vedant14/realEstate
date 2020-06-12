@@ -1,9 +1,9 @@
-<div class="btn-group property-but">
-	<%= link_to 'Edit Property', edit_property_path(@property), class: "btn btn-light" if policy(@property).edit? %> 
+<div class="btn-group my-4">
+	<%= link_to 'Edit Property', edit_property_path(@property), class: "btn btn-warning" if policy(@property).edit? %> 
 	<%= link_to 'Edit Images', "#", class:"btn btn-light", data: {toggle: "modal", target: "#editImage"}  if policy(@property).edit? && @property.images.attached?  %>
  	<%= link_to featured_text(@property), toggle_featured_property_path(@property), class: featured_class(@property) if @property.status == "Approved" && admin? %> 
 
-		<%= render "edit_images" %>
+	<%= render "edit_images" %>
 
 	 <% if @property.status == "Pending" %>
 	 	<%= link_to "List this property", list_property_path(@property), class: "btn btn-success" if policy(@property).list? if admin? %>

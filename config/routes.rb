@@ -13,16 +13,8 @@ Rails.application.routes.draw do
          resources :admin_users
       end
 
-    resources :properties do 
-      member do 
-        get :toggle_status
-        get :list
-        get :unlist
-        get :toggle_featured
-        delete :delete_image_attachment
-      end
-    end
 
+    root to: 'static#home'
    
     resources :offers do
       member do 
@@ -31,22 +23,25 @@ Rails.application.routes.draw do
         get :closed
       end
     end
-
-    get 'view-properties', to: 'properties#view_properties'
-
-    
-  	get 'static/home'
-  	get 'about-us', to: 'static#about'
-  	get 'contact-us', to: 'static#contact_us'
-  	get 'faqs', to: 'static#faq'
-  	root to: 'static#home'
   end 
-    get 'not_authorised', to: 'static#not_authorised'
-  	resources :companies do
-      member do 
-        get :toggle_status
-      end
+  resources :properties do 
+    member do 
+      get :toggle_status
+      get :list
+      get :unlist
+      get :toggle_featured
+      delete :delete_image_attachment
     end
-    devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
-    root to: 'static#not_authorised'
   end
+  get 'view-properties', to: 'properties#view_properties'
+  get 'not_authorised', to: 'static#not_authorised'
+	resources :companies do
+    member do 
+      get :toggle_status
+    end
+  end
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
+  get 'about-us', to: 'static#about'
+  get 'contact-us', to: 'static#contact_us'
+  get 'faqs', to: 'static#faq'
+end
