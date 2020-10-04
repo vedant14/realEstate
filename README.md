@@ -1,4 +1,4 @@
-# Real Estate Agent CRM - [Demo](https://realestatelistingapp.herokuapp.com/)
+# Real Estate Agent CRM - [Demo](https://realestatelistingapp.herokuapp.com/){target:"_blank"}
 
 ## Why I chose to make a realestate agent crm? 
 
