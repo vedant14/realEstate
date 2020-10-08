@@ -22,7 +22,7 @@ gem 'pundit', '~> 2.0', '>= 2.0.1'
 gem 'simple_form', '~> 4.1'
 gem "administrate", github: "thoughtbot/administrate"
 gem "font-awesome-rails"
-gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'kaminari', '~> 1.2'
 gem 'devcamp_view_tool', '~> 0.1.0'
 gem 'apartment', '~> 2.2', '>= 2.2.1'
 gem 'airbrake', '~> 10.0', '>= 10.0.3'
